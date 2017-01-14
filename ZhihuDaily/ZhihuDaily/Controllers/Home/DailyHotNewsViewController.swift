@@ -10,32 +10,9 @@ import UIKit
 import SnapKit
 
 class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewsImageHeaderViewDelegate, SDCycleScrollViewDelegate {
-    lazy var tableView = UITableView()
-    let headerViewHeight:CGFloat = 154
     
-    func LockScorllView(_ maxOffsetY: CGFloat) {
-        self.tableView.contentOffset.y = maxOffsetY
-    }
-    
-    func autoAdjustNavigationBarAplha(_ aplha: CGFloat) {
-        self.navigationController?.navigationBar.lt_setElementsAlpha(alpha: aplha)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-        
+    lazy var headerView: NewsImageHeaderView = {
+        let headerViewHeight: CGFloat = 154
         let cycleScrollView = SDCycleScrollView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: ym_ScreenWidth, height: headerViewHeight)), delegate: self, placeholderImage: nil) as SDCycleScrollView
         cycleScrollView.infiniteLoop = true
         cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated
@@ -44,10 +21,39 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         cycleScrollView.titleLabelTextFont = UIFont(name: "STHeitiSC-Medium", size: 21)
         cycleScrollView.titleLabelBackgroundColor = UIColor.clear
         cycleScrollView.titleLabelHeight = 60
-
-        let headerView: NewsImageHeaderView = NewsImageHeaderView(size: CGSize(width: ym_ScreenWidth, height: 154), maxContentOffsetY: 100, containSubView: cycleScrollView)
+        
+        let headerView: NewsImageHeaderView = NewsImageHeaderView(size: CGSize(width: ym_ScreenWidth, height: headerViewHeight), maxContentOffsetY: 140, containSubView: cycleScrollView)
         headerView.delegate = self
-        tableView.tableHeaderView = headerView
+        return headerView
+    }()
+    
+    lazy var newsTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 93
+        tableView.register(NewsItemCell.self, forCellReuseIdentifier: NSStringFromClass(NewsItemCell.self))
+        tableView.tableHeaderView = self.headerView
+        return tableView
+    }()
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor)
+        
+        
+        view.addSubview(newsTableView)
+        newsTableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        
+        newsTableView.tableHeaderView = headerView
     }
 }
 
@@ -56,22 +62,21 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
 extension DailyHotNewsViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = String.init(format: "cell --- %lu", indexPath.row)
-        return cell
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(NewsItemCell.self), for: indexPath)
+        
+        return itemCell
     }
-    
 }
 
 // MARK: tableView delegate
 extension DailyHotNewsViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let heardView = tableView.tableHeaderView as! NewsImageHeaderView
+        let heardView = newsTableView.tableHeaderView as! NewsImageHeaderView
         heardView.layoutHeaderViewWithScrollOffset(scrollView.contentOffset)
     }
 }
@@ -80,6 +85,6 @@ extension DailyHotNewsViewController {
 extension DailyHotNewsViewController {
     
     func headerView(_ headerView: NewsImageHeaderView, lockScrollWithOffset maxOffset: CGFloat) {
-        tableView.contentOffset.y = maxOffset
+        newsTableView.contentOffset.y = maxOffset
     }
 }

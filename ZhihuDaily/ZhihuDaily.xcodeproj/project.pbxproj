@@ -18,6 +18,7 @@
 		DD62C16A1E20CE92003DDBDA /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DD62C1631E20CE92003DDBDA /* UIView+SDExtension.m */; };
 		DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */; };
 		DD62C16F1E20D441003DDBDA /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62C16E1E20D441003DDBDA /* RequestAPI.swift */; };
+		DD7384CE1E27284E004C5BD3 /* NewsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */; };
 		DD8408421E1F4A52008A2CC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408411E1F4A52008A2CC0 /* AppDelegate.swift */; };
 		DD8408471E1F4A52008A2CC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8408451E1F4A52008A2CC0 /* Main.storyboard */; };
 		DD8408491E1F4A52008A2CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8408481E1F4A52008A2CC0 /* Assets.xcassets */; };
@@ -34,6 +35,8 @@
 		DD8408891E1F9411008A2CC0 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408881E1F9411008A2CC0 /* CommonFunctions.swift */; };
 		DD84088B1E1F941F008A2CC0 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD84088A1E1F941F008A2CC0 /* Macros.swift */; };
 		DD8408911E1FA5DB008A2CC0 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408901E1FA5DB008A2CC0 /* UIView+Utils.swift */; };
+		DDDD670E1E29C1220090621A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD670D1E29C1220090621A /* LaunchViewController.swift */; };
+		DDDD67101E29C83D0090621A /* LaunchImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD670F1E29C83D0090621A /* LaunchImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +60,8 @@
 		DD62C1631E20CE92003DDBDA /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		DD62C16E1E20D441003DDBDA /* RequestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
-		DD84083E1E1F4A52008A2CC0 /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemCell.swift; sourceTree = "<group>"; };
+		DD84083E1E1F4A52008A2CC0 /* 0.+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0.+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8408411E1F4A52008A2CC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD8408461E1F4A52008A2CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD8408481E1F4A52008A2CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		DD8408881E1F9411008A2CC0 /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		DD84088A1E1F941F008A2CC0 /* Macros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		DD8408901E1FA5DB008A2CC0 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		DDDD670D1E29C1220090621A /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		DDDD670F1E29C83D0090621A /* LaunchImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +170,7 @@
 		DD84083F1E1F4A52008A2CC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD84083E1E1F4A52008A2CC0 /* ZhihuDaily.app */,
+				DD84083E1E1F4A52008A2CC0 /* 0.+.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				DD8408661E1F4E50008A2CC0 /* MainNavigationController.swift */,
+				DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -240,6 +247,8 @@
 		DD84086D1E1F4F83008A2CC0 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				DDDD670D1E29C1220090621A /* LaunchViewController.swift */,
+				DDDD670F1E29C83D0090621A /* LaunchImageLoader.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -292,9 +301,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD84083D1E1F4A52008A2CC0 /* ZhihuDaily */ = {
+		DD84083D1E1F4A52008A2CC0 /* 0.+ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD8408501E1F4A52008A2CC0 /* Build configuration list for PBXNativeTarget "ZhihuDaily" */;
+			buildConfigurationList = DD8408501E1F4A52008A2CC0 /* Build configuration list for PBXNativeTarget "0.+" */;
 			buildPhases = (
 				ABAB09B29D6E8E55E6EB280D /* [CP] Check Pods Manifest.lock */,
 				DD84083A1E1F4A52008A2CC0 /* Sources */,
@@ -307,9 +316,9 @@
 			);
 			dependencies = (
 			);
-			name = ZhihuDaily;
+			name = "0.+";
 			productName = ZhihuDaily;
-			productReference = DD84083E1E1F4A52008A2CC0 /* ZhihuDaily.app */;
+			productReference = DD84083E1E1F4A52008A2CC0 /* 0.+.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -341,7 +350,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD84083D1E1F4A52008A2CC0 /* ZhihuDaily */,
+				DD84083D1E1F4A52008A2CC0 /* 0.+ */,
 			);
 		};
 /* End PBXProject section */
@@ -413,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD84088B1E1F941F008A2CC0 /* Macros.swift in Sources */,
+				DD7384CE1E27284E004C5BD3 /* NewsItemCell.swift in Sources */,
 				DD62C1641E20CE92003DDBDA /* TAAbstractDotView.m in Sources */,
 				DD8408851E1F93E7008A2CC0 /* AppDelegate+Extension.swift in Sources */,
 				DD8408911E1FA5DB008A2CC0 /* UIView+Utils.swift in Sources */,
@@ -427,10 +437,12 @@
 				DD8408861E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift in Sources */,
 				DD84085F1E1F4B93008A2CC0 /* MMDrawerController.m in Sources */,
 				DD8408731E1F62FC008A2CC0 /* SlideMenuViewController.swift in Sources */,
+				DDDD670E1E29C1220090621A /* LaunchViewController.swift in Sources */,
 				DD8408421E1F4A52008A2CC0 /* AppDelegate.swift in Sources */,
 				DD8408891E1F9411008A2CC0 /* CommonFunctions.swift in Sources */,
 				DD62C1661E20CE92003DDBDA /* TADotView.m in Sources */,
 				DD62C16F1E20D441003DDBDA /* RequestAPI.swift in Sources */,
+				DDDD67101E29C83D0090621A /* LaunchImageLoader.swift in Sources */,
 				DD8408711E1F6205008A2CC0 /* DailyHotNewsViewController.swift in Sources */,
 				DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */,
 				DD62C1671E20CE92003DDBDA /* TAPageControl.m in Sources */,
@@ -556,7 +568,9 @@
 			baseConfigurationReference = 98944EE7A718A0587A7DB4C0 /* Pods-ZhihuDaily.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ZhihuDaily/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiomidd.ZhihuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,7 +584,9 @@
 			baseConfigurationReference = 844A60CF5D527E0C04CC2609 /* Pods-ZhihuDaily.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ZhihuDaily/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiomidd.ZhihuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -591,7 +607,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD8408501E1F4A52008A2CC0 /* Build configuration list for PBXNativeTarget "ZhihuDaily" */ = {
+		DD8408501E1F4A52008A2CC0 /* Build configuration list for PBXNativeTarget "0.+" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD8408511E1F4A52008A2CC0 /* Debug */,

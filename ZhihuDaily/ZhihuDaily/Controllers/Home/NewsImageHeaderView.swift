@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public protocol NewsImageHeaderViewDelegate {
+@objc public protocol NewsImageHeaderViewDelegate: class{
     // 限制ScrollView的最大下拉距离
     @objc optional func headerView(_ headerView: NewsImageHeaderView, lockScrollWithOffset maxOffset: CGFloat) -> Void
 }

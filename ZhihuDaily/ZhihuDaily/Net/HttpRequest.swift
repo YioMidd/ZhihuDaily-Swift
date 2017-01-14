@@ -11,8 +11,4 @@ import Alamofire
 
 public class HttpRequest: NSObject {
 
-    func aw()  {
-        Alamofire.request(<#T##url: URLConvertible##URLConvertible#>).response(completionHandler: <#T##(DefaultDataResponse) -> Void#>)
-    }
-    
 }
