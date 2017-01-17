@@ -21,13 +21,3 @@ class MainNavigationController: UINavigationController {
     }
     
 }
-
-
-private class name : NSObject {
-    
-}
-
-
-fileprivate class nickName: name {
-    
-}

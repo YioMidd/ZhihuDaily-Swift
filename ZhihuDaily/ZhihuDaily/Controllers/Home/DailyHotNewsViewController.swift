@@ -46,13 +46,10 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor)
         
-        
         view.addSubview(newsTableView)
         newsTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        
-        
         newsTableView.tableHeaderView = headerView
     }
 }
