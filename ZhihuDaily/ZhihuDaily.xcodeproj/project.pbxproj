@@ -19,9 +19,14 @@
 		DD62C16A1E20CE92003DDBDA /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DD62C1631E20CE92003DDBDA /* UIView+SDExtension.m */; };
 		DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */; };
 		DD62C16F1E20D441003DDBDA /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62C16E1E20D441003DDBDA /* RequestAPI.swift */; };
+		DD63EEBB1E2F1DA20034EC89 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEBA1E2F1DA20034EC89 /* RequestProtocol.swift */; };
+		DD63EEBD1E2F216B0034EC89 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEBC1E2F216B0034EC89 /* ResponseProtocol.swift */; };
+		DD63EEBF1E2F21D50034EC89 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEBE1E2F21D50034EC89 /* ClientProtocol.swift */; };
+		DD63EEC11E2F23340034EC89 /* HTTPRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC01E2F23340034EC89 /* HTTPRequestClient.swift */; };
+		DD63EEC41E2F48E80034EC89 /* ReformerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */; };
+		DD63EEC61E2F4D0C0034EC89 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC51E2F4D0C0034EC89 /* HTTPResponse.swift */; };
+		DD63EECA1E2F8A590034EC89 /* HotNewsListReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC91E2F8A590034EC89 /* HotNewsListReformer.swift */; };
 		DD70E58B1E2C754F00763F27 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E58A1E2C754F00763F27 /* Delay.swift */; };
-		DD70E58D1E2C791900763F27 /* RequestComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E58C1E2C791900763F27 /* RequestComponent.swift */; };
-		DD70E58F1E2C8C4700763F27 /* ResponseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E58E1E2C8C4700763F27 /* ResponseComponent.swift */; };
 		DD7384CE1E27284E004C5BD3 /* NewsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */; };
 		DD8408421E1F4A52008A2CC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408411E1F4A52008A2CC0 /* AppDelegate.swift */; };
 		DD8408471E1F4A52008A2CC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8408451E1F4A52008A2CC0 /* Main.storyboard */; };
@@ -64,9 +69,14 @@
 		DD62C1631E20CE92003DDBDA /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		DD62C16E1E20D441003DDBDA /* RequestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
+		DD63EEBA1E2F1DA20034EC89 /* RequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		DD63EEBC1E2F216B0034EC89 /* ResponseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
+		DD63EEBE1E2F21D50034EC89 /* ClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
+		DD63EEC01E2F23340034EC89 /* HTTPRequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestClient.swift; sourceTree = "<group>"; };
+		DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReformerProtocol.swift; sourceTree = "<group>"; };
+		DD63EEC51E2F4D0C0034EC89 /* HTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		DD63EEC91E2F8A590034EC89 /* HotNewsListReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotNewsListReformer.swift; sourceTree = "<group>"; };
 		DD70E58A1E2C754F00763F27 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
-		DD70E58C1E2C791900763F27 /* RequestComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestComponent.swift; sourceTree = "<group>"; };
-		DD70E58E1E2C8C4700763F27 /* ResponseComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseComponent.swift; sourceTree = "<group>"; };
 		DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemCell.swift; sourceTree = "<group>"; };
 		DD84083E1E1F4A52008A2CC0 /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8408411E1F4A52008A2CC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,12 +166,24 @@
 		DD62C16B1E20D20B003DDBDA /* Net */ = {
 			isa = PBXGroup;
 			children = (
-				DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */,
-				DD70E58C1E2C791900763F27 /* RequestComponent.swift */,
-				DD70E58E1E2C8C4700763F27 /* ResponseComponent.swift */,
 				DD62C16E1E20D441003DDBDA /* RequestAPI.swift */,
+				DD63EEBA1E2F1DA20034EC89 /* RequestProtocol.swift */,
+				DD63EEBC1E2F216B0034EC89 /* ResponseProtocol.swift */,
+				DD63EEBE1E2F21D50034EC89 /* ClientProtocol.swift */,
+				DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */,
+				DD63EEC51E2F4D0C0034EC89 /* HTTPResponse.swift */,
+				DD63EEC01E2F23340034EC89 /* HTTPRequestClient.swift */,
 			);
 			path = Net;
+			sourceTree = "<group>";
+		};
+		DD63EEC21E2F48D80034EC89 /* Reformer */ = {
+			isa = PBXGroup;
+			children = (
+				DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */,
+				DD63EEC91E2F8A590034EC89 /* HotNewsListReformer.swift */,
+			);
+			path = Reformer;
 			sourceTree = "<group>";
 		};
 		DD8408351E1F4A52008A2CC0 = {
@@ -188,9 +210,10 @@
 			children = (
 				DD8408411E1F4A52008A2CC0 /* AppDelegate.swift */,
 				DD8408641E1F4E13008A2CC0 /* Controllers */,
+				DD63EEC21E2F48D80034EC89 /* Reformer */,
 				DD62C16B1E20D20B003DDBDA /* Net */,
 				DD8408821E1F93E7008A2CC0 /* Extension */,
-				DD8408871E1F93FA008A2CC0 /* Macro */,
+				DD8408871E1F93FA008A2CC0 /* Constant */,
 				DD8408531E1F4B8B008A2CC0 /* Lib */,
 				DD8408781E1F75F4008A2CC0 /* SupportFiles */,
 			);
@@ -298,12 +321,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		DD8408871E1F93FA008A2CC0 /* Macro */ = {
+		DD8408871E1F93FA008A2CC0 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
 				DD8408881E1F9411008A2CC0 /* CommonFunctions.swift */,
 				DD0E67A41E2DC39A009B5E9C /* Constant.swift */,
 			);
+			name = Constant;
 			path = Macro;
 			sourceTree = "<group>";
 		};
@@ -431,8 +455,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD63EECA1E2F8A590034EC89 /* HotNewsListReformer.swift in Sources */,
+				DD63EEBF1E2F21D50034EC89 /* ClientProtocol.swift in Sources */,
 				DD0E67A51E2DC39A009B5E9C /* Constant.swift in Sources */,
 				DD7384CE1E27284E004C5BD3 /* NewsItemCell.swift in Sources */,
+				DD63EEC41E2F48E80034EC89 /* ReformerProtocol.swift in Sources */,
 				DD62C1641E20CE92003DDBDA /* TAAbstractDotView.m in Sources */,
 				DD8408851E1F93E7008A2CC0 /* AppDelegate+Extension.swift in Sources */,
 				DD8408911E1FA5DB008A2CC0 /* UIView+Utils.swift in Sources */,
@@ -440,13 +467,14 @@
 				DD70E58B1E2C754F00763F27 /* Delay.swift in Sources */,
 				DD62C13C1E20A79D003DDBDA /* NewsImageHeaderView.swift in Sources */,
 				DD8408601E1F4B93008A2CC0 /* MMDrawerVisualState.m in Sources */,
+				DD63EEBB1E2F1DA20034EC89 /* RequestProtocol.swift in Sources */,
+				DD63EEC61E2F4D0C0034EC89 /* HTTPResponse.swift in Sources */,
 				DD62C16A1E20CE92003DDBDA /* UIView+SDExtension.m in Sources */,
-				DD70E58F1E2C8C4700763F27 /* ResponseComponent.swift in Sources */,
 				DD84085E1E1F4B93008A2CC0 /* MMDrawerBarButtonItem.m in Sources */,
 				DD62C1651E20CE92003DDBDA /* TAAnimatedDotView.m in Sources */,
 				DD62C1681E20CE92003DDBDA /* SDCollectionViewCell.m in Sources */,
-				DD70E58D1E2C791900763F27 /* RequestComponent.swift in Sources */,
 				DD8408611E1F4B93008A2CC0 /* UIViewController+MMDrawerController.m in Sources */,
+				DD63EEC11E2F23340034EC89 /* HTTPRequestClient.swift in Sources */,
 				DD8408861E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift in Sources */,
 				DD84085F1E1F4B93008A2CC0 /* MMDrawerController.m in Sources */,
 				DD8408731E1F62FC008A2CC0 /* SlideMenuViewController.swift in Sources */,
@@ -455,6 +483,7 @@
 				DD8408891E1F9411008A2CC0 /* CommonFunctions.swift in Sources */,
 				DD62C1661E20CE92003DDBDA /* TADotView.m in Sources */,
 				DD62C16F1E20D441003DDBDA /* RequestAPI.swift in Sources */,
+				DD63EEBD1E2F216B0034EC89 /* ResponseProtocol.swift in Sources */,
 				DDDD67101E29C83D0090621A /* LaunchImageLoader.swift in Sources */,
 				DD8408711E1F6205008A2CC0 /* DailyHotNewsViewController.swift in Sources */,
 				DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */,

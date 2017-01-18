@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = launchVC
         window?.makeKeyAndVisible()
         return true
+        
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

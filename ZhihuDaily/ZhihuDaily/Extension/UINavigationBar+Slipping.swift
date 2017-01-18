@@ -29,6 +29,7 @@ extension UINavigationBar {
     func lt_setBackgroundColor(backgroundColor: UIColor) {
         if overlay == nil {
             self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            self.shadowImage = UIImage()
             overlay = UIView.init(frame: CGRect.init(x: 0, y: 0, width: bounds.width, height: bounds.height+20))
             overlay?.isUserInteractionEnabled = false
             overlay?.autoresizingMask = UIViewAutoresizing.flexibleWidth

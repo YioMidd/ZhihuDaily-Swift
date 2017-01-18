@@ -14,7 +14,11 @@ class MainNavigationController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let titleAttributes = [NSForegroundColorAttributeName : UIColor.white,
+                               NSFontAttributeName : TextFont14Size]
+        self.navigationBar.titleTextAttributes = titleAttributes
     }
+    
     
     override var childViewControllerForStatusBarStyle: UIViewController? {
         return self.topViewController

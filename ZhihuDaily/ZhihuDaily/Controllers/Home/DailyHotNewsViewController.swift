@@ -11,6 +11,8 @@ import SnapKit
 
 class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewsImageHeaderViewDelegate, SDCycleScrollViewDelegate {
     
+    let originOffset: CGFloat = -64.0
+    let scrollDistance: CGFloat = 185.0
     lazy var headerView: NewsImageHeaderView = {
         let headerViewHeight: CGFloat = 154
         let cycleScrollView = SDCycleScrollView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: ym_ScreenWidth, height: headerViewHeight)), delegate: self, placeholderImage: nil) as SDCycleScrollView
@@ -30,6 +32,7 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
     lazy var newsTableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 93
@@ -44,7 +47,8 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor)
+        self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: UIColor.clear)
+        self.title = "今日热闻"
         
         view.addSubview(newsTableView)
         newsTableView.snp.makeConstraints { (make) in
@@ -73,6 +77,14 @@ extension DailyHotNewsViewController {
 extension DailyHotNewsViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y <= originOffset {
+            self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor.withAlphaComponent(0))
+        }else {
+            let alpha = min(1.0, (scrollView.contentOffset.y - originOffset) / scrollDistance)
+            self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor.withAlphaComponent(alpha))
+        }
+        
+        print("\(scrollView.contentOffset.y)")
         let heardView = newsTableView.tableHeaderView as! NewsImageHeaderView
         heardView.layoutHeaderViewWithScrollOffset(scrollView.contentOffset)
     }

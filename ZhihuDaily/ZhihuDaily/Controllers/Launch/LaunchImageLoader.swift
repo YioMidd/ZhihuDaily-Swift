@@ -26,15 +26,16 @@ class LaunchImageLoader: NSObject {
             dict[UserDefaultLaunchImageKey] = UIImage(data: imageData!)
         }
         
-        let component = RequestComponent(url: url_launchImage(750, 1334), type: .get, parameters: nil)
-        HttpRequest.init(requestComponent: component).response({ (responseData) in
-            if let json = responseData.resultValue {
+        
+        HTTPRequestClient().send(HTTPRequest(url: url_launchImage(750, 1334), method: .GET, parameters: nil)) { response in
+            if let json = response.rawData {
                 UserDefaults.standard.set(json["text"], forKey: UserDefaultLaunchImageCopyRightKey)
                 let data: Data? = try? Data.init(contentsOf: URL(string: json["img"] as! String)!)
                 UserDefaults.standard.set(data, forKey: UserDefaultLaunchImageKey)
                 UserDefaults.standard.synchronize()
             }
-        })
+        }
+        
         return dict
     }
 }
