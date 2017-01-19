@@ -15,7 +15,7 @@ class MainNavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
         let titleAttributes = [NSForegroundColorAttributeName : UIColor.white,
-                               NSFontAttributeName : TextFont14Size]
+                               NSFontAttributeName : UIFont.boldSystemFont(ofSize: 14)]
         self.navigationBar.titleTextAttributes = titleAttributes
     }
     

@@ -12,7 +12,7 @@ struct HTTPResponse {
     
     var rawData: [String : Any]?
     var error: Error?
-    
+
     func fetchDataWithReformer(_ reformer: Reformer?) -> Any {
         if reformer == nil {
             return rawData!

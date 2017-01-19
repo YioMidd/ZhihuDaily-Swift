@@ -26,7 +26,7 @@ public func url_versionCheck(_ currentVersion: String) -> String {
 }
 
 /// 获取最新新闻
-public func url_latestNews(_: Void) -> String {
+public func url_latestNews( ) -> String {
     return "http://news-at.zhihu.com/api/4/news/latest"
 }
 
@@ -68,7 +68,7 @@ public func url_newsShortComments(_ newsId: String) -> String {
 }
 
 /// 主题日报列表查看
-public func url_themesList(_: Void) -> String {
+public func url_themesList( ) -> String {
     return "http://news-at.zhihu.com/api/4/themes"
 }
 
@@ -78,12 +78,12 @@ public func url_themeNews(_ themeId: String) -> String {
 }
 
 /// 热门新闻
-public func url_hotNews(_: Void) -> String {
+public func url_hotNews() -> String {
     return "http://news-at.zhihu.com/api/3/news/hot"
 }
 
 /// 栏目总览
-public func url_sections(_: Void) -> String {
+public func url_sections() -> String {
     return "http://news-at.zhihu.com/api/3/sections"
 }
 

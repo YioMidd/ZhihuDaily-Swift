@@ -12,7 +12,9 @@ import Foundation
 
 let HotNewsListDataKeyDate = "HotNewsListDataKeyDate"
 let HotNewsListDataKeyStories = "HotNewsListDataKeyStories"
+let HotNewsListDataKeyTopStories = "HotNewsListDataKeyTopStories"
 let HotNewsListDataKeyImages = "HotNewsListDataKeyImages"
+let HotNewsListDataKeyImage = "HotNewsListDataKeyImage"
 let HotNewsListDataKeyType = "HotNewsListDataKeyType"
 let HotNewsListDataKeyId = "HotNewsListDataKeyId"
 let HotNewsListDataKeyGaPrefix = "HotNewsListDataKeyGaPrefix"
@@ -29,10 +31,12 @@ struct HotNewsListReformer: Reformer {
         for item in originDict["stories"] as! [[String : Any]] {
             var itemDict = Dictionary<String, Any>()
             itemDict[HotNewsListDataKeyId] = item["id"]
-            itemDict[HotNewsListDataKeyImages] = item["images"]
+            itemDict[HotNewsListDataKeyImages] = item["images"] ?? []
             itemDict[HotNewsListDataKeyType] = item["type"]
             itemDict[HotNewsListDataKeyGaPrefix] = item["ga_prefix"]
-            itemDict[HotNewsListDataKeyMultipic] = item["multipic"]
+            if item["multipic"] != nil {
+                itemDict[HotNewsListDataKeyMultipic] =  item["multipic"]
+            }
             itemDict[HotNewsListDataKeyTitle] = item["title"]
             hotNewsArray.append(itemDict)
         }
@@ -40,6 +44,29 @@ struct HotNewsListReformer: Reformer {
         return hotNewsDict
     }
 }
+
+
+struct HotNewsTopListReformer: Reformer {
+    func reformerWithResponse(_ response: HTTPResponse) -> Any {
+        let originDict = response.rawData!
+        var hotNewsTopDict = Dictionary<String, Any>()
+        var hotNewsTopArray = Array<Any>()
+        
+        hotNewsTopDict[HotNewsListDataKeyDate] = originDict["date"]
+        for item in originDict["top_stories"] as! [[String : Any]] {
+            var itemDict = Dictionary<String, Any>()
+            itemDict[HotNewsListDataKeyId] = item["id"]
+            itemDict[HotNewsListDataKeyImage] = item["image"]
+            itemDict[HotNewsListDataKeyType] = item["type"]
+            itemDict[HotNewsListDataKeyGaPrefix] = item["ga_prefix"]
+            itemDict[HotNewsListDataKeyTitle] = item["title"]
+            hotNewsTopArray.append(itemDict)
+        }
+        hotNewsTopDict[HotNewsListDataKeyTopStories] = hotNewsTopArray
+        return hotNewsTopDict
+    }
+}
+
 
 //{
 //    "date": "20170118",

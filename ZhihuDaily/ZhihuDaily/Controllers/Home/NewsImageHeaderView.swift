@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 @objc public protocol NewsImageHeaderViewDelegate: class{
     // 限制ScrollView的最大下拉距离
@@ -21,15 +22,19 @@ public class NewsImageHeaderView: UIView {
     var contentView = UIView()
     var maxContenOffsetY: CGFloat
     
+    fileprivate var contentViewTopConstraint: Constraint?
+    
     init(size:CGSize, maxContentOffsetY offsetY: CGFloat, containSubView subView: UIView) {
         self.subView = subView
         maxContenOffsetY = offsetY < 0 ? offsetY : -offsetY
         super.init(frame: CGRect(origin: CGPoint.zero, size: size))
-        
         self.clipsToBounds = false
         contentView.clipsToBounds = true
-        contentView.frame = self.bounds
         self.addSubview(contentView)
+        contentView.snp.makeConstraints { (maker) in
+            maker.left.right.bottom.equalToSuperview()
+            self.contentViewTopConstraint = maker.top.equalToSuperview().constraint
+        }
         contentView.addSubview(subView)
         subView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -48,8 +53,7 @@ public class NewsImageHeaderView: UIView {
             }
             delegate?.headerView?(self, lockScrollWithOffset: maxContenOffsetY)
         }else if delta < 0 {
-            contentView.y += delta
-            contentView.height += abs(delta)
+            contentViewTopConstraint?.update(offset: delta)
         }
     }
 }

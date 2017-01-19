@@ -9,7 +9,7 @@
 import Foundation
 
 extension AppDelegate {
-   class public func initializeRootViewController() -> MMDrawerController! {
+    class public func initializeRootViewController() -> MMDrawerController! {
         let nav = MainNavigationController(rootViewController: DailyHotNewsViewController())
         let rootViewController = MMDrawerController(center: nav, leftDrawerViewController: SlideMenuViewController())!
         rootViewController.openDrawerGestureModeMask = .all

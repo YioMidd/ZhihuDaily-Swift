@@ -8,13 +8,15 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 class NewsItemCell: UITableViewCell {
-
-    var titleLabel: UILabel!
-    var thumbnailImageView: UIImageView!
-    var titleLabelToImageViewConstraint: Constraint!
-    var titleLabelToSuperViewConstraint: Constraint!
+    
+    private var titleLabel: UILabel!
+    private var thumbnailImageView: UIImageView!
+    private var morePicImageView: UIImageView!
+    private var titleLabelToImageViewConstraint: Constraint!
+    private var titleLabelToSuperViewConstraint: Constraint!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,25 +25,27 @@ class NewsItemCell: UITableViewCell {
         contentView.addSubview(thumbnailImageView)
         thumbnailImageView.snp.makeConstraints { (maker) in
             maker.size.equalTo(CGSize(width: 75, height: 60))
-            maker.right.equalToSuperview().offset(10)
+            maker.right.equalToSuperview().inset(10)
             maker.centerY.equalToSuperview()
         }
         
+        morePicImageView = UIImageView()
+        morePicImageView.image = R.image.home_Morepic()
+        thumbnailImageView.addSubview(morePicImageView)
+        morePicImageView.snp.makeConstraints { (maker) in
+            maker.bottom.right.equalToSuperview()
+            maker.size.equalTo(CGSize(width: 32, height: 14))
+        }
+        
         titleLabel = UILabel()
-        titleLabel.numberOfLines = 2
-        titleLabel.font = NewsTitleFont
+        titleLabel.numberOfLines = 3
+        titleLabel.font = TextFont13Size
         titleLabel.textColor = NewsTitleColor
-        titleLabel.text = "sSSSGewqrtbzbfmbjkwgrgiu2qgtjgbkjbzmsfrserweersfdsfawerfasfwthtykjuili;'b"
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (maker) in
-            maker.top.left.equalTo(20)
-            titleLabelToImageViewConstraint = maker.right.equalTo(thumbnailImageView).inset(10).priority(UILayoutPriorityDefaultHigh).constraint
-            titleLabelToSuperViewConstraint = maker.right.equalToSuperview().inset(20).priority(UILayoutPriorityRequired).constraint
-            
-            if thumbnailImageView.image == nil{
-                titleLabelToImageViewConstraint.update(priority: UILayoutPriorityDefaultHigh)
-                titleLabelToSuperViewConstraint.update(priority: UILayoutPriorityRequired)
-            }
+            maker.top.left.equalTo(10)
+            titleLabelToImageViewConstraint = maker.right.equalTo(thumbnailImageView.snp.left).inset(-15).priority(UILayoutPriorityRequired).constraint
+            titleLabelToSuperViewConstraint = maker.right.equalToSuperview().inset(-10).priority(UILayoutPriorityDefaultHigh).constraint
         }
         
         let seperatorView = UIView()
@@ -58,12 +62,34 @@ class NewsItemCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    
+    func configCellWithData(_ data: [String : Any]) {
+        titleLabel.text = data[HotNewsListDataKeyTitle] as? String
+        let images = data[HotNewsListDataKeyImages] as! Array<String>
+        if data[HotNewsListDataKeyMultipic] != nil {
+            morePicImageView.isHidden = false
+        }else {
+            morePicImageView.isHidden = true
+        }
+        if images.count != 0 {
+            thumbnailImageView.isHidden = false
+            thumbnailImageView.sd_setImage(with: URL(string: images.first!))
+            titleLabelToImageViewConstraint.update(priority: UILayoutPriorityRequired)
+            titleLabelToSuperViewConstraint.update(priority: UILayoutPriorityDefaultHigh)
+        }else {
+            thumbnailImageView.isHidden = true
+            titleLabelToImageViewConstraint.update(priority: UILayoutPriorityDefaultHigh)
+            titleLabelToSuperViewConstraint.update(priority: UILayoutPriorityRequired)
+        }
+        
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
 

@@ -20,7 +20,6 @@
 		DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */; };
 		DD62C16F1E20D441003DDBDA /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62C16E1E20D441003DDBDA /* RequestAPI.swift */; };
 		DD63EEBB1E2F1DA20034EC89 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEBA1E2F1DA20034EC89 /* RequestProtocol.swift */; };
-		DD63EEBD1E2F216B0034EC89 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEBC1E2F216B0034EC89 /* ResponseProtocol.swift */; };
 		DD63EEBF1E2F21D50034EC89 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEBE1E2F21D50034EC89 /* ClientProtocol.swift */; };
 		DD63EEC11E2F23340034EC89 /* HTTPRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC01E2F23340034EC89 /* HTTPRequestClient.swift */; };
 		DD63EEC41E2F48E80034EC89 /* ReformerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */; };
@@ -43,6 +42,7 @@
 		DD8408861E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408841E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift */; };
 		DD8408891E1F9411008A2CC0 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408881E1F9411008A2CC0 /* CommonFunctions.swift */; };
 		DD8408911E1FA5DB008A2CC0 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408901E1FA5DB008A2CC0 /* UIView+Utils.swift */; };
+		DDA2AEDE1E305BD000982040 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2AEDD1E305BD000982040 /* R.generated.swift */; };
 		DDDD670E1E29C1220090621A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD670D1E29C1220090621A /* LaunchViewController.swift */; };
 		DDDD67101E29C83D0090621A /* LaunchImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD670F1E29C83D0090621A /* LaunchImageLoader.swift */; };
 /* End PBXBuildFile section */
@@ -70,7 +70,6 @@
 		DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		DD62C16E1E20D441003DDBDA /* RequestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		DD63EEBA1E2F1DA20034EC89 /* RequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
-		DD63EEBC1E2F216B0034EC89 /* ResponseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
 		DD63EEBE1E2F21D50034EC89 /* ClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
 		DD63EEC01E2F23340034EC89 /* HTTPRequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestClient.swift; sourceTree = "<group>"; };
 		DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReformerProtocol.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		DD8408841E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Slipping.swift"; sourceTree = "<group>"; };
 		DD8408881E1F9411008A2CC0 /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		DD8408901E1FA5DB008A2CC0 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		DDA2AEDD1E305BD000982040 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ZhihuDaily/R.generated.swift; sourceTree = "<group>"; };
 		DDDD670D1E29C1220090621A /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DDDD670F1E29C83D0090621A /* LaunchImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,7 +168,6 @@
 			children = (
 				DD62C16E1E20D441003DDBDA /* RequestAPI.swift */,
 				DD63EEBA1E2F1DA20034EC89 /* RequestProtocol.swift */,
-				DD63EEBC1E2F216B0034EC89 /* ResponseProtocol.swift */,
 				DD63EEBE1E2F21D50034EC89 /* ClientProtocol.swift */,
 				DD62C16C1E20D3B3003DDBDA /* HttpRequest.swift */,
 				DD63EEC51E2F4D0C0034EC89 /* HTTPResponse.swift */,
@@ -190,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				DD8408631E1F4D58008A2CC0 /* Bridging-Header.h */,
+				DDA2AEDD1E305BD000982040 /* R.generated.swift */,
 				DD8408401E1F4A52008A2CC0 /* ZhihuDaily */,
 				DD84083F1E1F4A52008A2CC0 /* Products */,
 				94474BB21794CFDFB643DC8D /* Pods */,
@@ -338,6 +338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD8408501E1F4A52008A2CC0 /* Build configuration list for PBXNativeTarget "ZhihuDaily" */;
 			buildPhases = (
+				DDA2AEDC1E305AE900982040 /* ShellScript */,
 				ABAB09B29D6E8E55E6EB280D /* [CP] Check Pods Manifest.lock */,
 				DD84083A1E1F4A52008A2CC0 /* Sources */,
 				DD84083B1E1F4A52008A2CC0 /* Frameworks */,
@@ -448,6 +449,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		DDA2AEDC1E305AE900982040 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT/ZhihuDaily\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -477,13 +491,13 @@
 				DD63EEC11E2F23340034EC89 /* HTTPRequestClient.swift in Sources */,
 				DD8408861E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift in Sources */,
 				DD84085F1E1F4B93008A2CC0 /* MMDrawerController.m in Sources */,
+				DDA2AEDE1E305BD000982040 /* R.generated.swift in Sources */,
 				DD8408731E1F62FC008A2CC0 /* SlideMenuViewController.swift in Sources */,
 				DDDD670E1E29C1220090621A /* LaunchViewController.swift in Sources */,
 				DD8408421E1F4A52008A2CC0 /* AppDelegate.swift in Sources */,
 				DD8408891E1F9411008A2CC0 /* CommonFunctions.swift in Sources */,
 				DD62C1661E20CE92003DDBDA /* TADotView.m in Sources */,
 				DD62C16F1E20D441003DDBDA /* RequestAPI.swift in Sources */,
-				DD63EEBD1E2F216B0034EC89 /* ResponseProtocol.swift in Sources */,
 				DDDD67101E29C83D0090621A /* LaunchImageLoader.swift in Sources */,
 				DD8408711E1F6205008A2CC0 /* DailyHotNewsViewController.swift in Sources */,
 				DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */,
@@ -618,6 +632,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiomidd.ZhihuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -635,6 +650,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiomidd.ZhihuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

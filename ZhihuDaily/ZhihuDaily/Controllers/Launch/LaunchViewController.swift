@@ -68,21 +68,44 @@ class LaunchViewController: UIViewController {
         initializeChildsView()
         
         delay(0.2) {
+            
+            delay(3.5, {
+                            })
+        }
+    }
+    
+    func showin(parent: UIViewController) {
+        parent.addChildViewController(self)
+        self.view.frame = parent.view.frame
+        parent.view.addSubview(self.view)
+        self.didMove(toParentViewController: parent)
+        
+        delay(0.2) { 
             UIView.animate(withDuration: 0.45, animations: {
                 self.bottomConstraint?.update(offset: ym_ScreenHeight - self.bottomViewHeight)
                 self.view.layoutIfNeeded()
-            }) { (finished) in
+            }) { _ in
                 self.logoAnimateView.startLogoAnimation()
                 UIView.animate(withDuration: 1.25, animations: {
                     self.backgroundImageView.alpha = 1
                     self.imageCopyRightLabel.alpha = 1
                 })
             }
-            delay(3.5, {
-                UIApplication.shared.keyWindow?.rootViewController = AppDelegate.initializeRootViewController()
-            })
         }
     }
+    
+    func hide(_ completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.15, animations: {
+            self.view.alpha = 0
+            self.view.layer.setAffineTransform(CGAffineTransform(scaleX: 1.2, y: 1.2))
+        }, completion: { _ in
+            completion()
+            self.willMove(toParentViewController: nil)
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
+        })
+    }
+    
     
     private func initializeChildsView() {
         let logoViewSize = CGSize(width: 30, height: 30)
