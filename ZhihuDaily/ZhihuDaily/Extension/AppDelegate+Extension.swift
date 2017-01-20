@@ -24,7 +24,11 @@ extension AppDelegate {
         return rootViewController
     }
     
-    class public func delegate(_:Void) -> AppDelegate {
+    class public func delegate() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
+    }
+    
+    class public func rootViewController() -> UIViewController {
+        return (UIApplication.shared.keyWindow?.rootViewController)!
     }
 }

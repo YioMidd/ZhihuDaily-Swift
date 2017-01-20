@@ -77,6 +77,12 @@
 - (void)setupTitleLabel
 {
     UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.font = [UIFont fontWithName:@"STHeitiSC-Medium" size:21];
+    titleLabel.sd_x = 15;
+    titleLabel.sd_y = 0;
+    titleLabel.sd_width = self.sd_width - 30;
+    titleLabel.numberOfLines = 0;
+    titleLabel.textAlignment = NSTextAlignmentLeft;
     _titleLabel = titleLabel;
     _titleLabel.hidden = YES;
     [self.contentView addSubview:titleLabel];
@@ -85,7 +91,12 @@
 - (void)setTitle:(NSString *)title
 {
     _title = [title copy];
-    _titleLabel.text = [NSString stringWithFormat:@"   %@", title];
+    CGFloat titleHeight = [title boundingRectWithSize:CGSizeMake(self.sd_width - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : _titleLabelTextFont} context:nil].size.height;
+    _titleLabel.sd_y = self.sd_height - titleHeight - 20;
+    _titleLabel.sd_height = titleHeight;
+    _titleLabel.text = [NSString stringWithFormat:@"%@", title];
+    [_titleLabel sizeToFit];
+    NSLog(@"title height ----  %f", titleHeight);
     if (_titleLabel.hidden) {
         _titleLabel.hidden = NO;
     }
@@ -100,11 +111,11 @@
         _titleLabel.frame = self.bounds;
     } else {
         _imageView.frame = self.bounds;
-        CGFloat titleLabelW = self.sd_width;
-        CGFloat titleLabelH = _titleLabelHeight;
-        CGFloat titleLabelX = 0;
-        CGFloat titleLabelY = self.sd_height - titleLabelH;
-        _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
+//        CGFloat titleLabelW = self.sd_width - 30;
+//        CGFloat titleLabelH = _titleLabelHeight;
+//        CGFloat titleLabelX = 15;
+//        CGFloat titleLabelY = self.sd_height - titleLabelH - 20;
+//        _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
     }
 }
 

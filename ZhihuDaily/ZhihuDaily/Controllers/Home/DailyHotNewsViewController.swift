@@ -10,29 +10,25 @@ import UIKit
 import SnapKit
 
 class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewsImageHeaderViewDelegate, SDCycleScrollViewDelegate {
-    
+    // MARK: Private Property
     fileprivate let originOffset: CGFloat = -64.0
     fileprivate let scrollDistance: CGFloat = 185.0
     fileprivate var hotNewsSource: Array = Array<Any>()
     fileprivate var cycleScrollView: SDCycleScrollView?
-    fileprivate var hideStatusBar: Bool = true {
-        didSet {
-            self.setNeedsStatusBarAppearanceUpdate()
-            self.navigationController?.navigationBar.isHidden = self.hideStatusBar
-        }
-    }
+    fileprivate var statusBarStyle: UIStatusBarStyle = .lightContent
+    fileprivate var statusBarStateHide: Bool = true
+    
     fileprivate lazy var headerView: NewsImageHeaderView = {
-        let headerViewHeight: CGFloat = 94
-        let maxContentOffsetY: CGFloat = 110.0
+        let headerViewHeight: CGFloat = 154
+        let maxContentOffsetY: CGFloat = 120.0
         self.cycleScrollView = SDCycleScrollView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: ym_ScreenWidth, height: headerViewHeight)), delegate: self, placeholderImage: nil) as SDCycleScrollView
         self.cycleScrollView?.backgroundColor = UIColor.clear
         self.cycleScrollView?.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated
         self.cycleScrollView?.autoScrollTimeInterval = 6.0;
         self.cycleScrollView?.pageControlStyle = SDCycleScrollViewPageContolStyleClassic
         self.cycleScrollView?.bannerImageViewContentMode = .scaleAspectFill
-        self.cycleScrollView?.titleLabelTextFont = TextFont16Size
+        self.cycleScrollView?.titleLabelTextFont = CycleViewTitleFont
         self.cycleScrollView?.titleLabelBackgroundColor = UIColor.clear
-        self.cycleScrollView?.titleLabelHeight = 60
         
         let headerView: NewsImageHeaderView = NewsImageHeaderView(size: CGSize(width: ym_ScreenWidth, height: headerViewHeight), maxContentOffsetY: maxContentOffsetY, containSubView: self.cycleScrollView!)
         headerView.delegate = self
@@ -45,30 +41,20 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.showsVerticalScrollIndicator = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 85
+        tableView.rowHeight = 95
         tableView.register(NewsItemCell.self, forCellReuseIdentifier: NSStringFromClass(NewsItemCell.self))
         tableView.tableHeaderView = self.headerView
         return tableView
     }()
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     override var prefersStatusBarHidden: Bool {
-        return hideStatusBar
-    }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return hideStatusBar ? .slide : .none
+        return statusBarStateHide
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: UIColor.clear)
-        self.navigationController?.navigationBar.isHidden = true
         self.title = "今日热闻"
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeStatusBarApperance(_:)), name: .StatusBarApperanceChangeNotification, object: nil)
         view.addSubview(newsTableView)
         newsTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -107,7 +93,6 @@ extension DailyHotNewsViewController {
             self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor.withAlphaComponent(alpha))
         }
         
-        print("\(scrollView.contentOffset.y)")
         let heardView = newsTableView.tableHeaderView as! NewsImageHeaderView
         heardView.layoutHeaderViewWithScrollOffset(scrollView.contentOffset)
     }
@@ -124,7 +109,7 @@ extension DailyHotNewsViewController {
 // MARK: Private
 extension DailyHotNewsViewController {
     
-    /// MARK: Network Request
+    // MARK: Network Request
     fileprivate func loadHotNews() {
         HTTPRequestClient().send(HTTPRequest(url: url_latestNews(), method: .GET, parameters: nil)) { (response) in
             if let _ = response.rawData {
@@ -155,15 +140,26 @@ extension DailyHotNewsViewController {
         self.cycleScrollView?.titlesGroup = titles
     }
     
-    /// MARK: Add ChildVC
+    // MARK: Add ChildVC
     fileprivate func addLaunchView() {
         let launchVC = LaunchViewController()
-        launchVC.showin(parent: self)
-        
-        delay(3.5) { 
-            launchVC.hide {
-                self.hideStatusBar = false
-            }
-        }
+        let parentVC = AppDelegate.rootViewController()
+        launchVC.showin(parent: parentVC)
     }
+    
+    // MARK: ChangeStatusBar Notification Method
+    @objc fileprivate func changeStatusBarApperance(_ notification: Notification) {
+        print("有通知来啦")
+        switch notification.userInfo?.keys.first as! String{
+        case let key where key == Notification.key.StatusBarStateHideNotificationUserInfoKey:
+            statusBarStateHide = notification.userInfo?[key] as! Bool
+        case let key where key == Notification.key.StatusBarStyleDefaultNotificationUserInfoKey:
+            statusBarStyle = notification.userInfo?[key] as! UIStatusBarStyle
+        case let key where key == Notification.key.StatusBarStyleLightContentNotificationUserInfoKey:
+            statusBarStyle = notification.userInfo?[key] as! UIStatusBarStyle
+        default: break
+        }
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
 }

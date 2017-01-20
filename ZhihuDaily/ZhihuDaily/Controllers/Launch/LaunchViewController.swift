@@ -15,15 +15,16 @@ private class LogoAnimateView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.black
-        layer.cornerRadius = 7;
+        backgroundColor = ym_HexRGBColor(0x101010)
+        layer.cornerRadius = 10;
         layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 1
+        layer.borderWidth = 1.5
         
+        // 中间的圈圈
         logoLayer = CAShapeLayer()
         logoLayer.strokeColor = UIColor.white.cgColor
         logoLayer.fillColor = UIColor.clear.cgColor
-        logoLayer.lineWidth = 3
+        logoLayer.lineWidth = 4.5
         logoLayer.lineCap = kCALineCapRound
         logoLayer.strokeEnd = 0
         layer.addSublayer(logoLayer)
@@ -33,11 +34,11 @@ private class LogoAnimateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func startLogoAnimation( ) {
+    func startLogoAnimation() {
         let arcCenter = CGPoint(x: self.width / 2.0, y: self.height / 2.0)
         CATransaction.begin()
-        CATransaction.setAnimationDuration(2)
-        let path = UIBezierPath(arcCenter: arcCenter, radius: 8, startAngle: CGFloat(M_PI) * 2.5 / 5.0, endAngle: CGFloat(M_PI * 2), clockwise: true)
+        CATransaction.setAnimationDuration(2.5)
+        let path = UIBezierPath(arcCenter: arcCenter, radius: self.width * 0.25, startAngle: CGFloat(M_PI) * 2.5 / 5.0, endAngle: CGFloat(M_PI * 2), clockwise: true)
         logoLayer.path = path.cgPath
         logoLayer.strokeEnd = 1
         CATransaction.commit()
@@ -46,11 +47,12 @@ private class LogoAnimateView: UIView {
 
 class LaunchViewController: UIViewController {
     
+    // MARK: Private Property
     fileprivate var logoAnimateView = LogoAnimateView()
     private var backgroundImageView: UIImageView!
     private var bottomView = UIView()
     private var bottomConstraint: Constraint?
-    private let bottomViewHeight: CGFloat = 80
+    private let bottomViewHeight: CGFloat = 100
     private var launchImageDict: Dictionary<String, Any> = [:]
     private var imageCopyRightLabel: UILabel = {
         let label = UILabel()
@@ -61,56 +63,64 @@ class LaunchViewController: UIViewController {
         return label
     }()
     
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = ym_HexRGBColor(0x131313)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         launchImageDict = LaunchImageLoader().getLaunchImageDict()
-        initializeChildsView()
+        self.initializeChildsView()
         
-        delay(0.2) {
-            
-            delay(3.5, {
-                            })
+        delay(2.75) {
+            self.animatedHide()
         }
     }
     
+    // MARK: Public API
     func showin(parent: UIViewController) {
         parent.addChildViewController(self)
         self.view.frame = parent.view.frame
         parent.view.addSubview(self.view)
         self.didMove(toParentViewController: parent)
-        
-        delay(0.2) { 
-            UIView.animate(withDuration: 0.45, animations: {
-                self.bottomConstraint?.update(offset: ym_ScreenHeight - self.bottomViewHeight)
-                self.view.layoutIfNeeded()
-            }) { _ in
-                self.logoAnimateView.startLogoAnimation()
-                UIView.animate(withDuration: 1.25, animations: {
-                    self.backgroundImageView.alpha = 1
-                    self.imageCopyRightLabel.alpha = 1
-                })
-            }
+        delay(0.15) {
+            self.animatedShow()
         }
     }
     
-    func hide(_ completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.15, animations: {
-            self.view.alpha = 0
-            self.view.layer.setAffineTransform(CGAffineTransform(scaleX: 1.2, y: 1.2))
-        }, completion: { _ in
-            completion()
-            self.willMove(toParentViewController: nil)
-            self.view.removeFromSuperview()
-            self.removeFromParentViewController()
-        })
+    // MARK: Private API
+    @objc fileprivate func animatedShow() {
+        UIView.animate(withDuration: 0.25, animations: {
+            // Refresh Layout
+            self.bottomConstraint?.update(offset: ym_ScreenHeight - self.bottomViewHeight)
+            self.view.layoutIfNeeded()
+        }) { _ in
+            UIView.animate(withDuration: 0.75, animations: {
+                self.backgroundImageView.alpha = 1
+                self.imageCopyRightLabel.alpha = 1
+            })
+            
+            self.logoAnimateView.startLogoAnimation()
+        }
     }
     
+    @objc fileprivate func animatedHide() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 0
+            self.view.layer.zPosition = 10
+            self.view.layer.setAffineTransform(CGAffineTransform(scaleX: 1.1, y: 1.1))
+        })
+        NotificationCenter.default.post(name: .StatusBarApperanceChangeNotification, object: nil, userInfo: [Notification.key.StatusBarStateHideNotificationUserInfoKey : false])
+    }
     
+    // MARK: Initalize ChildViews
     private func initializeChildsView() {
-        let logoViewSize = CGSize(width: 30, height: 30)
+        let logoViewSize = CGSize(width: 50, height: 50)
         
-        bottomView.backgroundColor = UIColor.black
+        bottomView.backgroundColor = ym_HexRGBColor(0x101010)
         view.addSubview(bottomView)
         bottomView.snp.makeConstraints { (maker) in
             maker.left.right.equalToSuperview()
@@ -121,14 +131,14 @@ class LaunchViewController: UIViewController {
         bottomView.addSubview(logoAnimateView)
         logoAnimateView.snp.makeConstraints { (maker) in
             maker.size.equalTo(logoViewSize)
-            maker.left.equalToSuperview().offset(15)
+            maker.left.equalToSuperview().offset(25)
             maker.centerY.equalToSuperview()
         }
         
         let appNameLabel = UILabel()
         appNameLabel.textColor = UIColor.white
         appNameLabel.text = "知乎..."
-        appNameLabel.font = TextFont14Size
+        appNameLabel.font = TextFont18Size
         bottomView.addSubview(appNameLabel)
         appNameLabel.snp.makeConstraints { (maker) in
             maker.left.equalTo(logoAnimateView.snp.right).offset(8)
@@ -138,11 +148,11 @@ class LaunchViewController: UIViewController {
         let descriptionLabel = UILabel()
         descriptionLabel.textColor = ym_HexRGBColor(0xcccccc)
         descriptionLabel.text = "每天三次，每次七..."
-        descriptionLabel.font = TextFont10Size
+        descriptionLabel.font = TextFont16Size
         bottomView.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { (maker) in
             maker.left.equalTo(appNameLabel.snp.left)
-            maker.bottom.equalTo(logoAnimateView.snp.bottom).inset(-1)
+            maker.bottom.equalTo(logoAnimateView.snp.bottom)
         }
         
         backgroundImageView = UIImageView()

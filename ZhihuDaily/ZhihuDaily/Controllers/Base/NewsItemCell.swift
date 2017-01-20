@@ -25,7 +25,7 @@ class NewsItemCell: UITableViewCell {
         contentView.addSubview(thumbnailImageView)
         thumbnailImageView.snp.makeConstraints { (maker) in
             maker.size.equalTo(CGSize(width: 75, height: 60))
-            maker.right.equalToSuperview().inset(10)
+            maker.right.equalToSuperview().inset(15)
             maker.centerY.equalToSuperview()
         }
         
@@ -39,11 +39,11 @@ class NewsItemCell: UITableViewCell {
         
         titleLabel = UILabel()
         titleLabel.numberOfLines = 3
-        titleLabel.font = TextFont13Size
+        titleLabel.font = NewsItemTitleFont
         titleLabel.textColor = NewsTitleColor
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (maker) in
-            maker.top.left.equalTo(10)
+            maker.top.left.equalTo(15)
             titleLabelToImageViewConstraint = maker.right.equalTo(thumbnailImageView.snp.left).inset(-15).priority(UILayoutPriorityRequired).constraint
             titleLabelToSuperViewConstraint = maker.right.equalToSuperview().inset(-10).priority(UILayoutPriorityDefaultHigh).constraint
         }

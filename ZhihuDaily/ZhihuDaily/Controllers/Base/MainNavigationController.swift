@@ -9,19 +9,22 @@
 import UIKit
 
 class MainNavigationController: UINavigationController {
-
+    
+    private var statusBarStateHide: Bool = true
+    private var statusBarStyle: UIStatusBarStyle = .lightContent
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         let titleAttributes = [NSForegroundColorAttributeName : UIColor.white,
-                               NSFontAttributeName : UIFont.boldSystemFont(ofSize: 14)]
+                               NSFontAttributeName : NavTitleFont]
         self.navigationBar.titleTextAttributes = titleAttributes
+        self.navigationBar.shadowImage = UIImage()
+        
     }
     
-    
-    override var childViewControllerForStatusBarStyle: UIViewController? {
-        return self.topViewController
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        print("statusBarStyle")
+        return statusBarStyle
     }
     
 }

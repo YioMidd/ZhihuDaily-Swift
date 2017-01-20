@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "76686F8714F5FDB780C0B37C8776B91FFFDE968E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5EC91EA560143E40EBB7B4FAF09D1D69574DF04C" : 9223372036854775807,
+    "76686F8714F5FDB780C0B37C8776B91FFFDE968E" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B7780A50-1611-4844-84FA-619B36C5B177",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5EC91EA560143E40EBB7B4FAF09D1D69574DF04C" : "SandBoxOL\/",
+    "76686F8714F5FDB780C0B37C8776B91FFFDE968E" : "ZhihuDaily-Swift\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ZhihuDaily",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ZhihuDaily\/ZhihuDaily.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/blockmangame\/ios-mcpeonline2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5EC91EA560143E40EBB7B4FAF09D1D69574DF04C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/YioMidd\/ZhihuDaily-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "76686F8714F5FDB780C0B37C8776B91FFFDE968E"
+    }
+  ]
+}
