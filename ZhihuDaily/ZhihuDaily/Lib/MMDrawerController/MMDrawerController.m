@@ -1074,11 +1074,17 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
             CGFloat percentVisible = 0.0;
             if(xOffset > 0){
                 visibleSide = MMDrawerSideLeft;
-                percentVisible = xOffset/self.maximumLeftDrawerWidth;
+                percentVisible = (xOffset/self.maximumLeftDrawerWidth) >= 1 ? 1 : xOffset/self.maximumLeftDrawerWidth;
+                if (xOffset >= self.maximumLeftDrawerWidth) {
+                    newFrame.origin.x = self.maximumLeftDrawerWidth;
+                }
             }
             else if(xOffset < 0){
                 visibleSide = MMDrawerSideRight;
-                percentVisible = ABS(xOffset)/self.maximumRightDrawerWidth;
+                percentVisible = (ABS(xOffset)/self.maximumRightDrawerWidth) >= 1 ? 1 : ABS(xOffset)/self.maximumRightDrawerWidth;
+                if (ABS(xOffset) >= self.maximumRightDrawerWidth) {
+                    newFrame.origin.x = -self.maximumRightDrawerWidth;
+                }
             }
             UIViewController * visibleSideDrawerViewController = [self sideDrawerViewControllerForSide:visibleSide];
             

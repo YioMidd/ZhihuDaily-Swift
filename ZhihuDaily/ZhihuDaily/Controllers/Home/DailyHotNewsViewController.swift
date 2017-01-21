@@ -15,7 +15,7 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
     fileprivate let scrollDistance: CGFloat = 185.0
     fileprivate var hotNewsSource: Array = Array<Any>()
     fileprivate var cycleScrollView: SDCycleScrollView?
-    fileprivate var statusBarStyle: UIStatusBarStyle = .lightContent
+    fileprivate var statusBarStyle: UIStatusBarStyle = .lightContent 
     fileprivate var statusBarStateHide: Bool = true
     
     fileprivate lazy var headerView: NewsImageHeaderView = {
@@ -29,6 +29,7 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         self.cycleScrollView?.bannerImageViewContentMode = .scaleAspectFill
         self.cycleScrollView?.titleLabelTextFont = CycleViewTitleFont
         self.cycleScrollView?.titleLabelBackgroundColor = UIColor.clear
+        self.cycleScrollView?.titleLabelHeight = 100
         
         let headerView: NewsImageHeaderView = NewsImageHeaderView(size: CGSize(width: ym_ScreenWidth, height: headerViewHeight), maxContentOffsetY: maxContentOffsetY, containSubView: self.cycleScrollView!)
         headerView.delegate = self
@@ -51,20 +52,28 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         return statusBarStateHide
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "今日热闻"
-        NotificationCenter.default.addObserver(self, selector: #selector(self.changeStatusBarApperance(_:)), name: .StatusBarApperanceChangeNotification, object: nil)
+        let leftBarButton = UIBarButtonItem(image: R.image.home_Icon(), style: .plain, target: self, action: #selector(self.showSlideView))
+        leftBarButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = leftBarButton
         view.addSubview(newsTableView)
         newsTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         newsTableView.tableHeaderView = headerView
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeStatusBarApperance(_:)), name: .StatusBarApperanceChangeNotification, object: nil)
         
         // 提前加载数据
         loadHotNews()
         // 展示启动欢迎界面
         addLaunchView()
+        
     }
 }
 
@@ -159,7 +168,11 @@ extension DailyHotNewsViewController {
             statusBarStyle = notification.userInfo?[key] as! UIStatusBarStyle
         default: break
         }
-        self.setNeedsStatusBarAppearanceUpdate()
+        setNeedsStatusBarAppearanceUpdate()
     }
     
+    // MARK: Button Actions
+    @objc fileprivate func showSlideView() {
+        self.mm_drawerController.toggle(.left, animated: true, completion: nil)
+    }
 }

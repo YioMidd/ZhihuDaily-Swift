@@ -22,9 +22,16 @@ class MainNavigationController: UINavigationController {
         
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        print("statusBarStyle")
-        return statusBarStyle
+    override var childViewControllerForStatusBarStyle: UIViewController? {
+        return self.topViewController
     }
+    
+    override var childViewControllerForStatusBarHidden: UIViewController? {
+        return self.topViewController
+    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        print("statusBarStyle")
+//        return statusBarStyle
+//    }
     
 }

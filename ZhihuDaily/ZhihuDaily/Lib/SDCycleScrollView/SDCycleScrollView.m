@@ -569,6 +569,7 @@ NSString * const ID = @"cycleCell";
         cell.titleLabelBackgroundColor = self.titleLabelBackgroundColor;
         cell.titleLabelTextColor = self.titleLabelTextColor;
         cell.titleLabelTextFont = self.titleLabelTextFont;
+        cell.titleLabelHeight = self.titleLabelHeight;
         cell.hasConfigured = YES;
         cell.imageView.contentMode = self.bannerImageViewContentMode;
         cell.clipsToBounds = YES;

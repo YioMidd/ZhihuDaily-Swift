@@ -31,12 +31,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 27 images.
+  /// This `R.image` struct is generated, and contains static references to 36 images.
   struct image {
-    /// Image `AD_Mask`.
-    static let aD_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "AD_Mask")
-    /// Image `Action_Shadow`.
-    static let action_Shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "Action_Shadow")
     /// Image `Back_White`.
     static let back_White = Rswift.ImageResource(bundle: R.hostingBundle, name: "Back_White")
     /// Image `Browser_Button_Highlight`.
@@ -67,36 +63,48 @@ struct R: Rswift.Validatable {
     static let browser_Icon_Reload_Highlight = Rswift.ImageResource(bundle: R.hostingBundle, name: "Browser_Icon_Reload_Highlight")
     /// Image `Browser_Icon_Reload`.
     static let browser_Icon_Reload = Rswift.ImageResource(bundle: R.hostingBundle, name: "Browser_Icon_Reload")
+    /// Image `Field_Button_Highlight_Bg`.
+    static let field_Button_Highlight_Bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "Field_Button_Highlight_Bg")
     /// Image `Home_Icon`.
     static let home_Icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Icon")
-    /// Image `Home_Image_Mask_Plus`.
-    static let home_Image_Mask_Plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Image_Mask_Plus")
-    /// Image `Home_Image_Mask`.
-    static let home_Image_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Image_Mask")
     /// Image `Home_Morepic`.
     static let home_Morepic = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Morepic")
-    /// Image `Home_Topmask`.
-    static let home_Topmask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Home_Topmask")
     /// Image `Image_Preview`.
     static let image_Preview = Rswift.ImageResource(bundle: R.hostingBundle, name: "Image_Preview")
-    /// Image `News_Image_Mask`.
-    static let news_Image_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "News_Image_Mask")
+    /// Image `Menu_Close`.
+    static let menu_Close = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Close")
+    /// Image `Menu_Dark`.
+    static let menu_Dark = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Dark")
+    /// Image `Menu_Day`.
+    static let menu_Day = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Day")
+    /// Image `Menu_Download`.
+    static let menu_Download = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Download")
+    /// Image `Menu_Enter`.
+    static let menu_Enter = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Enter")
+    /// Image `Menu_Follow`.
+    static let menu_Follow = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Follow")
+    /// Image `Menu_Icon_Collect`.
+    static let menu_Icon_Collect = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Collect")
+    /// Image `Menu_Icon_Events_Clicked`.
+    static let menu_Icon_Events_Clicked = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Events_Clicked")
+    /// Image `Menu_Icon_Events`.
+    static let menu_Icon_Events = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Events")
+    /// Image `Menu_Icon_Home_Highlight`.
+    static let menu_Icon_Home_Highlight = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Home_Highlight")
+    /// Image `Menu_Icon_Home`.
+    static let menu_Icon_Home = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Home")
+    /// Image `Menu_Icon_Message_Point`.
+    static let menu_Icon_Message_Point = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Message_Point")
+    /// Image `Menu_Icon_Message`.
+    static let menu_Icon_Message = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Message")
+    /// Image `Menu_Icon_Setting`.
+    static let menu_Icon_Setting = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Icon_Setting")
+    /// Image `Menu_Mask`.
+    static let menu_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Menu_Mask")
     /// Image `Splash_Image`.
     static let splash_Image = Rswift.ImageResource(bundle: R.hostingBundle, name: "Splash_Image")
-    /// Image `ToolBar_Shadow`.
-    static let toolBar_Shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "ToolBar_Shadow")
-    /// Image `Top_Mask`.
-    static let top_Mask = Rswift.ImageResource(bundle: R.hostingBundle, name: "Top_Mask")
-    
-    /// `UIImage(named: "AD_Mask", bundle: ..., traitCollection: ...)`
-    static func aD_Mask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.aD_Mask, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "Action_Shadow", bundle: ..., traitCollection: ...)`
-    static func action_Shadow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.action_Shadow, compatibleWith: traitCollection)
-    }
+    /// Image `launchImage`.
+    static let launchImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "launchImage")
     
     /// `UIImage(named: "Back_White", bundle: ..., traitCollection: ...)`
     static func back_White(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -173,19 +181,14 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.browser_Icon_Reload_Highlight, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "Field_Button_Highlight_Bg", bundle: ..., traitCollection: ...)`
+    static func field_Button_Highlight_Bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.field_Button_Highlight_Bg, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "Home_Icon", bundle: ..., traitCollection: ...)`
     static func home_Icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.home_Icon, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "Home_Image_Mask", bundle: ..., traitCollection: ...)`
-    static func home_Image_Mask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.home_Image_Mask, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "Home_Image_Mask_Plus", bundle: ..., traitCollection: ...)`
-    static func home_Image_Mask_Plus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.home_Image_Mask_Plus, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "Home_Morepic", bundle: ..., traitCollection: ...)`
@@ -193,19 +196,84 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.home_Morepic, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "Home_Topmask", bundle: ..., traitCollection: ...)`
-    static func home_Topmask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.home_Topmask, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "Image_Preview", bundle: ..., traitCollection: ...)`
     static func image_Preview(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.image_Preview, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "News_Image_Mask", bundle: ..., traitCollection: ...)`
-    static func news_Image_Mask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.news_Image_Mask, compatibleWith: traitCollection)
+    /// `UIImage(named: "Menu_Close", bundle: ..., traitCollection: ...)`
+    static func menu_Close(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Close, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Dark", bundle: ..., traitCollection: ...)`
+    static func menu_Dark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Dark, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Day", bundle: ..., traitCollection: ...)`
+    static func menu_Day(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Day, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Download", bundle: ..., traitCollection: ...)`
+    static func menu_Download(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Download, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Enter", bundle: ..., traitCollection: ...)`
+    static func menu_Enter(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Enter, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Follow", bundle: ..., traitCollection: ...)`
+    static func menu_Follow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Follow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Collect", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Collect(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Collect, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Events", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Events(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Events, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Events_Clicked", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Events_Clicked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Events_Clicked, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Home", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Home(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Home, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Home_Highlight", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Home_Highlight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Home_Highlight, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Message", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Message(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Message, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Message_Point", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Message_Point(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Message_Point, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Icon_Setting", bundle: ..., traitCollection: ...)`
+    static func menu_Icon_Setting(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Icon_Setting, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Menu_Mask", bundle: ..., traitCollection: ...)`
+    static func menu_Mask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_Mask, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "Splash_Image", bundle: ..., traitCollection: ...)`
@@ -213,14 +281,9 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.splash_Image, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "ToolBar_Shadow", bundle: ..., traitCollection: ...)`
-    static func toolBar_Shadow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.toolBar_Shadow, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "Top_Mask", bundle: ..., traitCollection: ...)`
-    static func top_Mask(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.top_Mask, compatibleWith: traitCollection)
+    /// `UIImage(named: "launchImage", bundle: ..., traitCollection: ...)`
+    static func launchImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.launchImage, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}

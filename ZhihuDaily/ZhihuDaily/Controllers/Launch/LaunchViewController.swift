@@ -114,6 +114,7 @@ class LaunchViewController: UIViewController {
             self.view.layer.setAffineTransform(CGAffineTransform(scaleX: 1.1, y: 1.1))
         })
         NotificationCenter.default.post(name: .StatusBarApperanceChangeNotification, object: nil, userInfo: [Notification.key.StatusBarStateHideNotificationUserInfoKey : false])
+        NotificationCenter.default.post(name: .StatusBarApperanceChangeNotification, object: nil, userInfo: [Notification.key.StatusBarStyleLightContentNotificationUserInfoKey : UIStatusBarStyle.lightContent])
     }
     
     // MARK: Initalize ChildViews

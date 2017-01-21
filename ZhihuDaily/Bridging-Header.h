@@ -11,5 +11,7 @@
 
 #import "MMDrawerController.h"
 #import "MMDrawerVisualState.h"
+#import "UIViewController+MMDrawerController.h"
 #import "SDCycleScrollView.h"
+#import "GradientView.h"
 #endif /* Bridging_Header_h */

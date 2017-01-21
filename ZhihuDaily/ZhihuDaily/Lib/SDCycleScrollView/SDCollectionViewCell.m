@@ -32,10 +32,13 @@
 
 #import "SDCollectionViewCell.h"
 #import "UIView+SDExtension.h"
+#import "GradientView.h"
+#import "CustomAlignLabel.h"
 
 @implementation SDCollectionViewCell
 {
-    __weak UILabel *_titleLabel;
+    __weak CustomAlignLabel *_titleLabel;
+    GradientView *_maskView;
 }
 
 
@@ -72,34 +75,27 @@
     UIImageView *imageView = [[UIImageView alloc] init];
     _imageView = imageView;
     [self.contentView addSubview:imageView];
+    
+    _maskView = [[GradientView alloc]initWithFrame:self.bounds type:TRANSPARENT_GRADIENT_TWICE_TYPE];
+    [self.contentView addSubview:_maskView];
+    
 }
 
 - (void)setupTitleLabel
 {
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.font = [UIFont fontWithName:@"STHeitiSC-Medium" size:21];
-    titleLabel.sd_x = 15;
-    titleLabel.sd_y = 0;
-    titleLabel.sd_width = self.sd_width - 30;
+    CustomAlignLabel *titleLabel = [[CustomAlignLabel alloc] init];
+    titleLabel.verticalTextAlignment = VerticalTextAlignmentBottom;
     titleLabel.numberOfLines = 0;
     titleLabel.textAlignment = NSTextAlignmentLeft;
-    _titleLabel = titleLabel;
-    _titleLabel.hidden = YES;
+    titleLabel.hidden = YES;
     [self.contentView addSubview:titleLabel];
+    _titleLabel = titleLabel;
 }
 
 - (void)setTitle:(NSString *)title
 {
     _title = [title copy];
-    CGFloat titleHeight = [title boundingRectWithSize:CGSizeMake(self.sd_width - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : _titleLabelTextFont} context:nil].size.height;
-    _titleLabel.sd_y = self.sd_height - titleHeight - 20;
-    _titleLabel.sd_height = titleHeight;
-    _titleLabel.text = [NSString stringWithFormat:@"%@", title];
-    [_titleLabel sizeToFit];
-    NSLog(@"title height ----  %f", titleHeight);
-    if (_titleLabel.hidden) {
-        _titleLabel.hidden = NO;
-    }
+    _titleLabel.text = _title;
 }
 
 
@@ -111,11 +107,17 @@
         _titleLabel.frame = self.bounds;
     } else {
         _imageView.frame = self.bounds;
-//        CGFloat titleLabelW = self.sd_width - 30;
-//        CGFloat titleLabelH = _titleLabelHeight;
-//        CGFloat titleLabelX = 15;
-//        CGFloat titleLabelY = self.sd_height - titleLabelH - 20;
-//        _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
+        _maskView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        [_maskView resetWithType:TRANSPARENT_GRADIENT_TWICE_TYPE];
+        
+        [self bringSubviewToFront:_titleLabel];
+        
+        CGFloat titleLabelW = self.sd_width - 30;
+        CGFloat titleLabelH = _titleLabelHeight;
+        CGFloat titleLabelX = 15;
+        CGFloat titleLabelY = self.sd_height - titleLabelH - 25;
+        _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
+        _titleLabel.hidden = !_titleLabel.text;
     }
 }
 

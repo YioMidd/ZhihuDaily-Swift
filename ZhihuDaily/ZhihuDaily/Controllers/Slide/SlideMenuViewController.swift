@@ -8,21 +8,33 @@
 
 import UIKit
 
-class SlideMenuViewController: UIViewController {
+class SlideMenuViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
+        
+        let table = UITableView(frame: self.view.bounds, style: .plain)
+        table.dataSource = self
+        view.addSubview(table)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        cell?.textLabel?.text = "cellIndex ----  \(indexPath.row)"
+        return cell!
     }
     
 

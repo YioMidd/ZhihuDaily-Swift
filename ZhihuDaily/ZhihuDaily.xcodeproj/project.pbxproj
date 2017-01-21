@@ -42,6 +42,8 @@
 		DD8408861E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408841E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift */; };
 		DD8408891E1F9411008A2CC0 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408881E1F9411008A2CC0 /* CommonFunctions.swift */; };
 		DD8408911E1FA5DB008A2CC0 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408901E1FA5DB008A2CC0 /* UIView+Utils.swift */; };
+		DD91C8CD1E32FF16008FC0D4 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD91C8CC1E32FF16008FC0D4 /* GradientView.m */; };
+		DD91C8D01E3304A0008FC0D4 /* CustomAlignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD91C8CF1E3304A0008FC0D4 /* CustomAlignLabel.m */; };
 		DDA2AEDE1E305BD000982040 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2AEDD1E305BD000982040 /* R.generated.swift */; };
 		DDB7A9441E31C7B1007991C5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7A9431E31C7B1007991C5 /* Notification.swift */; };
 		DDDD670E1E29C1220090621A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD670D1E29C1220090621A /* LaunchViewController.swift */; };
@@ -101,6 +103,10 @@
 		DD8408841E1F93E7008A2CC0 /* UINavigationBar+Slipping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Slipping.swift"; sourceTree = "<group>"; };
 		DD8408881E1F9411008A2CC0 /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		DD8408901E1FA5DB008A2CC0 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		DD91C8CB1E32FF16008FC0D4 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		DD91C8CC1E32FF16008FC0D4 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		DD91C8CE1E3304A0008FC0D4 /* CustomAlignLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlignLabel.h; sourceTree = "<group>"; };
+		DD91C8CF1E3304A0008FC0D4 /* CustomAlignLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlignLabel.m; sourceTree = "<group>"; };
 		DDA2AEDD1E305BD000982040 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ZhihuDaily/R.generated.swift; sourceTree = "<group>"; };
 		DDB7A9431E31C7B1007991C5 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		DDDD670D1E29C1220090621A /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 				DD62C1611E20CE92003DDBDA /* SDCycleScrollView.m */,
 				DD62C1621E20CE92003DDBDA /* UIView+SDExtension.h */,
 				DD62C1631E20CE92003DDBDA /* UIView+SDExtension.m */,
+				DD91C8CE1E3304A0008FC0D4 /* CustomAlignLabel.h */,
+				DD91C8CF1E3304A0008FC0D4 /* CustomAlignLabel.m */,
 			);
 			path = SDCycleScrollView;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 			children = (
 				DD62C1541E20CE92003DDBDA /* SDCycleScrollView */,
 				DD8408541E1F4B93008A2CC0 /* MMDrawerController */,
+				DD91C8CA1E32FF0D008FC0D4 /* GradientView */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -332,6 +341,15 @@
 			);
 			name = Constant;
 			path = Macro;
+			sourceTree = "<group>";
+		};
+		DD91C8CA1E32FF0D008FC0D4 /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				DD91C8CB1E32FF16008FC0D4 /* GradientView.h */,
+				DD91C8CC1E32FF16008FC0D4 /* GradientView.m */,
+			);
+			path = GradientView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD63EECA1E2F8A590034EC89 /* HotNewsListReformer.swift in Sources */,
+				DD91C8D01E3304A0008FC0D4 /* CustomAlignLabel.m in Sources */,
 				DD63EEBF1E2F21D50034EC89 /* ClientProtocol.swift in Sources */,
 				DD0E67A51E2DC39A009B5E9C /* Constant.swift in Sources */,
 				DD7384CE1E27284E004C5BD3 /* NewsItemCell.swift in Sources */,
@@ -482,6 +501,7 @@
 				DD8408911E1FA5DB008A2CC0 /* UIView+Utils.swift in Sources */,
 				DD8408671E1F4E50008A2CC0 /* MainNavigationController.swift in Sources */,
 				DD70E58B1E2C754F00763F27 /* Delay.swift in Sources */,
+				DD91C8CD1E32FF16008FC0D4 /* GradientView.m in Sources */,
 				DD62C13C1E20A79D003DDBDA /* NewsImageHeaderView.swift in Sources */,
 				DD8408601E1F4B93008A2CC0 /* MMDrawerVisualState.m in Sources */,
 				DD63EEBB1E2F1DA20034EC89 /* RequestProtocol.swift in Sources */,
