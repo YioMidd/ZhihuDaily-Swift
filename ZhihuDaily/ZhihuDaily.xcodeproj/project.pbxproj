@@ -25,6 +25,8 @@
 		DD63EEC41E2F48E80034EC89 /* ReformerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */; };
 		DD63EEC61E2F4D0C0034EC89 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC51E2F4D0C0034EC89 /* HTTPResponse.swift */; };
 		DD63EECA1E2F8A590034EC89 /* HotNewsListReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63EEC91E2F8A590034EC89 /* HotNewsListReformer.swift */; };
+		DD6B70EE1E486AF500B94F01 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6B70ED1E486AF500B94F01 /* Date.swift */; };
+		DD6B70F31E4885DB00B94F01 /* NewsSectionDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6B70F21E4885DB00B94F01 /* NewsSectionDateCell.swift */; };
 		DD70E58B1E2C754F00763F27 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD70E58A1E2C754F00763F27 /* Delay.swift */; };
 		DD7384CE1E27284E004C5BD3 /* NewsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */; };
 		DD8408421E1F4A52008A2CC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8408411E1F4A52008A2CC0 /* AppDelegate.swift */; };
@@ -78,6 +80,8 @@
 		DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReformerProtocol.swift; sourceTree = "<group>"; };
 		DD63EEC51E2F4D0C0034EC89 /* HTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
 		DD63EEC91E2F8A590034EC89 /* HotNewsListReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotNewsListReformer.swift; sourceTree = "<group>"; };
+		DD6B70ED1E486AF500B94F01 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		DD6B70F21E4885DB00B94F01 /* NewsSectionDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsSectionDateCell.swift; sourceTree = "<group>"; };
 		DD70E58A1E2C754F00763F27 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemCell.swift; sourceTree = "<group>"; };
 		DD84083E1E1F4A52008A2CC0 /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +286,7 @@
 			children = (
 				DD8408701E1F6205008A2CC0 /* DailyHotNewsViewController.swift */,
 				DD62C13B1E20A79D003DDBDA /* NewsImageHeaderView.swift */,
+				DD6B70F21E4885DB00B94F01 /* NewsSectionDateCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				DD8408901E1FA5DB008A2CC0 /* UIView+Utils.swift */,
 				DD70E58A1E2C754F00763F27 /* Delay.swift */,
 				DDB7A9431E31C7B1007991C5 /* Notification.swift */,
+				DD6B70ED1E486AF500B94F01 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD63EECA1E2F8A590034EC89 /* HotNewsListReformer.swift in Sources */,
+				DD6B70F31E4885DB00B94F01 /* NewsSectionDateCell.swift in Sources */,
 				DD91C8D01E3304A0008FC0D4 /* CustomAlignLabel.m in Sources */,
 				DD63EEBF1E2F21D50034EC89 /* ClientProtocol.swift in Sources */,
 				DD0E67A51E2DC39A009B5E9C /* Constant.swift in Sources */,
@@ -525,6 +532,7 @@
 				DD8408711E1F6205008A2CC0 /* DailyHotNewsViewController.swift in Sources */,
 				DDB7A9441E31C7B1007991C5 /* Notification.swift in Sources */,
 				DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */,
+				DD6B70EE1E486AF500B94F01 /* Date.swift in Sources */,
 				DD62C1671E20CE92003DDBDA /* TAPageControl.m in Sources */,
 				DD62C1691E20CE92003DDBDA /* SDCycleScrollView.m in Sources */,
 			);
