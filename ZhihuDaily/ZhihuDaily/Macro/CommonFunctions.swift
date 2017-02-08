@@ -40,3 +40,22 @@ func ym_HexRGBAColor(_ hex: Int, _ alpha: CGFloat) -> UIColor {
 func ym_RandomColor() -> UIColor {
     return UIColor(red: CGFloat(arc4random_uniform(255)) / 255.0, green: CGFloat(arc4random_uniform(255)) / 255.0, blue: CGFloat(arc4random_uniform(255)) / 255.0, alpha: 1.0)
 }
+
+func ym_FormateDateString(_ dateString: String) -> String {
+    let startIndex = dateString.index(dateString.startIndex, offsetBy: 4)
+    let endIndex = dateString.index(dateString.startIndex, offsetBy: 6)
+    let year = dateString.substring(with: dateString.startIndex..<startIndex)
+    let month = dateString.substring(with: startIndex..<endIndex)
+    let day = dateString.substring(with: endIndex..<dateString.endIndex)
+    
+    let weekDays: Array<String> = [" ", "日", "一", "二", "三", "四", "五", "六"]
+    var dateComponent = DateComponents()
+    let calender = Calendar.current
+    dateComponent.year = Int(year)
+    dateComponent.month = Int(month)
+    dateComponent.day = Int(day)
+    let date: Date = calender.date(from: dateComponent)!
+    let weekDay = calender.component(.weekday, from: date)
+    
+    return month + "月" + day + "日" + "   星期" + weekDays[weekDay]
+}

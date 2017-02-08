@@ -16,7 +16,7 @@ class NewsSectionDateCell: UITableViewCell {
         
         dateLabel = UILabel()
         dateLabel.backgroundColor = NavBarColor
-        dateLabel.font = TextFont14Size
+        dateLabel.font = TextFont15Size
         dateLabel.textColor = UIColor.white
         dateLabel.textAlignment = .center
         self.contentView.addSubview(dateLabel)
@@ -29,4 +29,7 @@ class NewsSectionDateCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func configCellWithData(_ data: String) {
+        dateLabel.text = data
+    }
 }
