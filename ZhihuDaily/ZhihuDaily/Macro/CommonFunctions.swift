@@ -46,7 +46,7 @@ func ym_FormateDateString(_ dateString: String) -> String {
     let endIndex = dateString.index(dateString.startIndex, offsetBy: 6)
     let year = dateString.substring(with: dateString.startIndex..<startIndex)
     let month = dateString.substring(with: startIndex..<endIndex)
-    let day = dateString.substring(with: endIndex..<dateString.endIndex)
+    var day = dateString.substring(with: endIndex..<dateString.endIndex)
     
     let weekDays: Array<String> = [" ", "日", "一", "二", "三", "四", "五", "六"]
     var dateComponent = DateComponents()
@@ -57,5 +57,8 @@ func ym_FormateDateString(_ dateString: String) -> String {
     let date: Date = calender.date(from: dateComponent)!
     let weekDay = calender.component(.weekday, from: date)
     
-    return month + "月" + day + "日" + "   星期" + weekDays[weekDay]
+    if day.hasPrefix("0") {
+        day.remove(at: day.startIndex)
+    }
+    return month + "月" + day + "日" + "  星期" + weekDays[weekDay]
 }

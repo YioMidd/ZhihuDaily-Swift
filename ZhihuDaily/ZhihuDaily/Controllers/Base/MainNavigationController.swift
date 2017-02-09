@@ -19,7 +19,6 @@ class MainNavigationController: UINavigationController {
                                NSFontAttributeName : NavTitleFont]
         self.navigationBar.titleTextAttributes = titleAttributes
         self.navigationBar.shadowImage = UIImage()
-        
     }
     
     override var childViewControllerForStatusBarStyle: UIViewController? {
@@ -29,9 +28,4 @@ class MainNavigationController: UINavigationController {
     override var childViewControllerForStatusBarHidden: UIViewController? {
         return self.topViewController
     }
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        print("statusBarStyle")
-//        return statusBarStyle
-//    }
-    
 }

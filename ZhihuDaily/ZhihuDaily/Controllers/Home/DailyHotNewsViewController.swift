@@ -21,6 +21,8 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
     fileprivate var statusBarStateHide: Bool = true
     fileprivate var titleView = NavTitleView(frame: CGRect(x: 0, y: 0, width: 120, height: 30))
     fileprivate let maxContentOffsetY: CGFloat = -120.0
+    fileprivate let tableViewRowHeight: CGFloat = 95
+    fileprivate let tableViewHeaderViewHeight: CGFloat = 40
     
     fileprivate lazy var headerView: NewsImageHeaderView = {
         let headerViewHeight: CGFloat = 154
@@ -45,8 +47,9 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.showsVerticalScrollIndicator = false
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = self.tableViewRowHeight
         tableView.register(NewsItemCell.self, forCellReuseIdentifier: NSStringFromClass(NewsItemCell.self))
-        tableView.register(NewsSectionDateCell.self, forCellReuseIdentifier: NSStringFromClass(NewsSectionDateCell.self))
+        tableView.register(NewsSectionDateHeaderView.self, forHeaderFooterViewReuseIdentifier: NSStringFromClass(NewsSectionDateHeaderView.self))
         tableView.tableHeaderView = self.headerView
         return tableView
     }()
@@ -78,6 +81,11 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         // 展示启动欢迎界面
         addLaunchView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.overlay?.frame = CGRect(x: 0, y: 0, width: self.view.width, height: 60)
+    }
 }
 
 // MARK: tableView dataSource
@@ -89,66 +97,80 @@ extension DailyHotNewsViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let news = hotNewsSource[section][HotNewsListDataKeyStories] as! Array<[String : Any]>
-        if section == 0 {
-            return news.count
-        }
-        return news.count + 1
+        return news.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section != 0 {
-            if indexPath.row == 0 {
-                // 日期分隔的cell
-                let dateCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(NewsSectionDateCell.self), for: indexPath) as! NewsSectionDateCell
-                let dateString = hotNewsSource[indexPath.section][HotNewsListDataKeyDate] as! String
-                dateCell.configCellWithData(ym_FormateDateString(dateString))
-                return dateCell
-            }
-            let itemCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(NewsItemCell.self), for: indexPath) as! NewsItemCell
-            let news = hotNewsSource[indexPath.section][HotNewsListDataKeyStories] as! Array<[String : Any]>
-            itemCell.configCellWithData(news[indexPath.row - 1])
-            return itemCell
-        }else {
-            let itemCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(NewsItemCell.self), for: indexPath) as! NewsItemCell
-            let news = hotNewsSource[indexPath.section][HotNewsListDataKeyStories] as! Array<[String : Any]>
-            itemCell.configCellWithData(news[indexPath.row])
-            return itemCell
-        }
+        
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(NewsItemCell.self), for: indexPath) as! NewsItemCell
+        let news = hotNewsSource[indexPath.section][HotNewsListDataKeyStories] as! Array<[String : Any]>
+        itemCell.configCellWithData(news[indexPath.row])
+        return itemCell
     }
 }
 
 // MARK: tableView delegate
 extension DailyHotNewsViewController {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section > 0 {
-            if indexPath.row == 0 {
-                return 35
-            }else {
-                return 95
-            }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return CGFloat.leastNormalMagnitude
         }
-        return 95
+        return tableViewHeaderViewHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section != 0 else {
+            return nil
+        }
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: NSStringFromClass(NewsSectionDateHeaderView.self)) as! NewsSectionDateHeaderView
+        let dateString = hotNewsSource[section][HotNewsListDataKeyDate] as! String
+        headerView.textLabel?.text = ym_FormateDateString(dateString)
+        return  headerView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
+        var stories = Array<[String : Any]>()
+        var firstOffsetY: CGFloat = 0.0
+        var lastOffsetY: CGFloat = 0.0
+        if hotNewsSource.count > 0 {
+           stories = hotNewsSource.first?[HotNewsListDataKeyStories] as! Array<[String : Any]>
+            firstOffsetY = CGFloat(stories.count) * tableViewRowHeight + 154 + originOffset
+            lastOffsetY = firstOffsetY + 4 + tableViewHeaderViewHeight
+        }
+        // 计算导航栏跟section header的位置
+        if offSetY >= firstOffsetY {
+            scrollView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
+            if  offSetY >= lastOffsetY {
+                self.titleView.isHidden = true
+                navigationController?.navigationBar.overlay?.transform = CGAffineTransform(translationX: 0, y: -tableViewHeaderViewHeight)
+            }else {
+                self.titleView.isHidden = false
+                navigationController?.navigationBar.overlay?.transform = CGAffineTransform(translationX: 0, y: 0)
+            }
+        }else if offSetY >= 0{
+            scrollView.contentInset = UIEdgeInsetsMake(-originOffset, 0, 0, 0)
+        }
+        
         if offSetY < originOffset {
+            // 设置导航栏颜色
             self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor.withAlphaComponent(0))
+            
+            // 计算刷新圈圈
             let percent = (originOffset - offSetY) / (originOffset - maxContentOffsetY)
             titleView.refreshView.redraw(progress: percent)
             if offSetY <= maxContentOffsetY + 10 && !scrollView.isDragging && !titleView.refreshView.refresh{
                 titleView.refreshView.refresh = true
-                loadHotNews()
+                delay(0.3, {
+                    self.loadHotNews()
+                })
             }
         }else {
             let alpha = (offSetY - originOffset) / scrollDistance
-            guard !(alpha >= 1.0) else {
-                return
-            }
             titleView.refreshView.redraw(progress: 0.0)
-            self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor.withAlphaComponent(min(1.0, alpha)))
+            self.navigationController?.navigationBar.lt_setBackgroundColor(backgroundColor: NavBarColor.withAlphaComponent(alpha))
         }
+        // 设置headerView
         let heardView = newsTableView.tableHeaderView as! NewsImageHeaderView
         heardView.layoutHeaderViewWithScrollOffset(scrollView.contentOffset)
     }
@@ -156,7 +178,7 @@ extension DailyHotNewsViewController {
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
         let contentSizeHeight = scrollView.contentSize.height
-        if abs(offSetY) + 64 >= contentSizeHeight * 0.3 && oldContentSizeHeight != contentSizeHeight {
+        if abs(offSetY) + 64 >= contentSizeHeight * 0.27 && oldContentSizeHeight != contentSizeHeight {
             // load the news before the date
             oldContentSizeHeight = contentSizeHeight
             HTTPRequestClient().send(HTTPRequest(url: url_newsBefore(newsDateString), method: .GET, parameters: nil), handler: { (response) in
@@ -224,7 +246,6 @@ extension DailyHotNewsViewController {
     
     // MARK: ChangeStatusBar Notification Method
     @objc fileprivate func changeStatusBarApperance(_ notification: Notification) {
-        print("有通知来啦")
         switch notification.userInfo?.keys.first as! String{
         case let key where key == Notification.key.StatusBarStateHideNotificationUserInfoKey:
             statusBarStateHide = notification.userInfo?[key] as! Bool

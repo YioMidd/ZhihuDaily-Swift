@@ -24,7 +24,6 @@ class RefreshCircleView: UIView {
     fileprivate var arcPoint: CGPoint?
     lazy private var circleBottomLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.opacity = 0.0
         layer.strokeColor = UIColor.gray.cgColor
         layer.fillColor = UIColor.clear.cgColor
         layer.strokeStart = 0
@@ -35,7 +34,6 @@ class RefreshCircleView: UIView {
     lazy private var circleTopLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         let arcPath = UIBezierPath(arcCenter: self.arcPoint!, radius: self.width * 0.5, startAngle: CGFloat(M_PI_2), endAngle: CGFloat(M_PI * 2 + M_PI_2), clockwise: true)
-        layer.opacity = 0.0
         layer.strokeColor = UIColor.white.cgColor
         layer.fillColor = UIColor.clear.cgColor
         layer.lineWidth = 1.4
@@ -70,12 +68,13 @@ class RefreshCircleView: UIView {
         }
         
         if progress > 0.05 {
-            circleBottomLayer.opacity = 1.0
-            circleTopLayer.opacity = 1.0
+            circleBottomLayer.isHidden = false
+            circleTopLayer.isHidden = false
         }else {
-            circleBottomLayer.opacity = 0.0
-            circleTopLayer.opacity = 0.0
+            circleBottomLayer.isHidden = true
+            circleTopLayer.isHidden = true
         }
+        
         CATransaction.begin()
         CATransaction.setAnimationDuration(0.05)
         circleTopLayer.strokeEnd = progress
@@ -83,8 +82,8 @@ class RefreshCircleView: UIView {
     }
     
     private func startAnimating() {
-        circleTopLayer.opacity = 0.0
-        circleBottomLayer.opacity = 0.0
+        circleTopLayer.isHidden = true
+        circleBottomLayer.isHidden = true
         activityView.startAnimating()
     }
     
