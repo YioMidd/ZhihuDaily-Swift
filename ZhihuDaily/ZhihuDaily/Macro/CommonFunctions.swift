@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-var ym_ScreenBounds: CGRect {
-    return UIScreen.main.bounds
-}
-
 var ym_ScreenSize: CGSize {
     return UIScreen.main.bounds.size
 }

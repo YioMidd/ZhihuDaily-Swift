@@ -9,11 +9,6 @@
 /* Begin PBXBuildFile section */
 		884DD904FB0D8EA353118B55 /* Pods_ZhihuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635EF91E981C120206ADBC47 /* Pods_ZhihuDaily.framework */; };
 		DD0E67A51E2DC39A009B5E9C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0E67A41E2DC39A009B5E9C /* Constant.swift */; };
-		DD36E7EC1E4ED67500995BD1 /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36E7EB1E4ED67500995BD1 /* PresentAnimation.swift */; };
-		DD36E7F01E4ED6EB00995BD1 /* ModalInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36E7EF1E4ED6EB00995BD1 /* ModalInteractiveTransition.swift */; };
-		DD36E7F21E4ED86000995BD1 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36E7F11E4ED86000995BD1 /* DismissAnimation.swift */; };
-		DD36E7F41E4EFA8600995BD1 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36E7F31E4EFA8600995BD1 /* TempViewController.swift */; };
-		DD383B111E4D765F00EBFD49 /* HotNewsDetailContentReformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD383B101E4D765F00EBFD49 /* HotNewsDetailContentReformer.swift */; };
 		DD62C13C1E20A79D003DDBDA /* NewsImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD62C13B1E20A79D003DDBDA /* NewsImageHeaderView.swift */; };
 		DD62C1641E20CE92003DDBDA /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD62C1571E20CE92003DDBDA /* TAAbstractDotView.m */; };
 		DD62C1651E20CE92003DDBDA /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD62C1591E20CE92003DDBDA /* TAAnimatedDotView.m */; };
@@ -55,7 +50,6 @@
 		DDB7A9441E31C7B1007991C5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7A9431E31C7B1007991C5 /* Notification.swift */; };
 		DDCB61941E4AD052004E7B85 /* RefreshCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCB61931E4AD052004E7B85 /* RefreshCircleView.swift */; };
 		DDCB61961E4B3485004E7B85 /* NewsSectionDateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCB61951E4B3485004E7B85 /* NewsSectionDateHeaderView.swift */; };
-		DDCB619A1E4C6554004E7B85 /* NewsDetailContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCB61991E4C6554004E7B85 /* NewsDetailContentViewController.swift */; };
 		DDDD670E1E29C1220090621A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD670D1E29C1220090621A /* LaunchViewController.swift */; };
 		DDDD67101E29C83D0090621A /* LaunchImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD670F1E29C83D0090621A /* LaunchImageLoader.swift */; };
 /* End PBXBuildFile section */
@@ -65,11 +59,6 @@
 		844A60CF5D527E0C04CC2609 /* Pods-ZhihuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhihuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhihuDaily/Pods-ZhihuDaily.release.xcconfig"; sourceTree = "<group>"; };
 		98944EE7A718A0587A7DB4C0 /* Pods-ZhihuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhihuDaily.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhihuDaily/Pods-ZhihuDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		DD0E67A41E2DC39A009B5E9C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		DD36E7EB1E4ED67500995BD1 /* PresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
-		DD36E7EF1E4ED6EB00995BD1 /* ModalInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalInteractiveTransition.swift; sourceTree = "<group>"; };
-		DD36E7F11E4ED86000995BD1 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
-		DD36E7F31E4EFA8600995BD1 /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
-		DD383B101E4D765F00EBFD49 /* HotNewsDetailContentReformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotNewsDetailContentReformer.swift; sourceTree = "<group>"; };
 		DD62C13B1E20A79D003DDBDA /* NewsImageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsImageHeaderView.swift; sourceTree = "<group>"; };
 		DD62C1561E20CE92003DDBDA /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
 		DD62C1571E20CE92003DDBDA /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
@@ -128,7 +117,6 @@
 		DDB7A9431E31C7B1007991C5 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		DDCB61931E4AD052004E7B85 /* RefreshCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshCircleView.swift; sourceTree = "<group>"; };
 		DDCB61951E4B3485004E7B85 /* NewsSectionDateHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsSectionDateHeaderView.swift; sourceTree = "<group>"; };
-		DDCB61991E4C6554004E7B85 /* NewsDetailContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailContentViewController.swift; sourceTree = "<group>"; };
 		DDDD670D1E29C1220090621A /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		DDDD670F1E29C83D0090621A /* LaunchImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,16 +148,6 @@
 				844A60CF5D527E0C04CC2609 /* Pods-ZhihuDaily.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		DD36E7EA1E4ED65A00995BD1 /* Transition */ = {
-			isa = PBXGroup;
-			children = (
-				DD36E7EB1E4ED67500995BD1 /* PresentAnimation.swift */,
-				DD36E7F11E4ED86000995BD1 /* DismissAnimation.swift */,
-				DD36E7EF1E4ED6EB00995BD1 /* ModalInteractiveTransition.swift */,
-			);
-			path = Transition;
 			sourceTree = "<group>";
 		};
 		DD62C1541E20CE92003DDBDA /* SDCycleScrollView */ = {
@@ -221,7 +199,6 @@
 			children = (
 				DD63EEC31E2F48E80034EC89 /* ReformerProtocol.swift */,
 				DD63EEC91E2F8A590034EC89 /* HotNewsListReformer.swift */,
-				DD383B101E4D765F00EBFD49 /* HotNewsDetailContentReformer.swift */,
 			);
 			path = Reformer;
 			sourceTree = "<group>";
@@ -295,7 +272,6 @@
 				DD84086D1E1F4F83008A2CC0 /* Launch */,
 				DD84086E1E1F4F83008A2CC0 /* Slide */,
 				DD84086F1E1F4F83008A2CC0 /* Theme */,
-				DDCB61981E4C541F004E7B85 /* NewsContent */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -303,7 +279,6 @@
 		DD8408651E1F4E2F008A2CC0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				DD36E7EA1E4ED65A00995BD1 /* Transition */,
 				DD8408661E1F4E50008A2CC0 /* MainNavigationController.swift */,
 				DD7384CD1E27284E004C5BD3 /* NewsItemCell.swift */,
 			);
@@ -389,15 +364,6 @@
 			path = GradientView;
 			sourceTree = "<group>";
 		};
-		DDCB61981E4C541F004E7B85 /* NewsContent */ = {
-			isa = PBXGroup;
-			children = (
-				DDCB61991E4C6554004E7B85 /* NewsDetailContentViewController.swift */,
-				DD36E7F31E4EFA8600995BD1 /* TempViewController.swift */,
-			);
-			path = NewsContent;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -405,8 +371,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD8408501E1F4A52008A2CC0 /* Build configuration list for PBXNativeTarget "ZhihuDaily" */;
 			buildPhases = (
-				ABAB09B29D6E8E55E6EB280D /* [CP] Check Pods Manifest.lock */,
 				DDA2AEDC1E305AE900982040 /* ShellScript */,
+				ABAB09B29D6E8E55E6EB280D /* [CP] Check Pods Manifest.lock */,
 				DD84083A1E1F4A52008A2CC0 /* Sources */,
 				DD84083B1E1F4A52008A2CC0 /* Frameworks */,
 				DD84083C1E1F4A52008A2CC0 /* Resources */,
@@ -540,14 +506,11 @@
 				DD91C8D01E3304A0008FC0D4 /* CustomAlignLabel.m in Sources */,
 				DD63EEBF1E2F21D50034EC89 /* ClientProtocol.swift in Sources */,
 				DD0E67A51E2DC39A009B5E9C /* Constant.swift in Sources */,
-				DDCB619A1E4C6554004E7B85 /* NewsDetailContentViewController.swift in Sources */,
 				DD7384CE1E27284E004C5BD3 /* NewsItemCell.swift in Sources */,
 				DD63EEC41E2F48E80034EC89 /* ReformerProtocol.swift in Sources */,
-				DD36E7F01E4ED6EB00995BD1 /* ModalInteractiveTransition.swift in Sources */,
 				DD62C1641E20CE92003DDBDA /* TAAbstractDotView.m in Sources */,
 				DD8408851E1F93E7008A2CC0 /* AppDelegate+Extension.swift in Sources */,
 				DD8408911E1FA5DB008A2CC0 /* UIView+Utils.swift in Sources */,
-				DD36E7EC1E4ED67500995BD1 /* PresentAnimation.swift in Sources */,
 				DD8408671E1F4E50008A2CC0 /* MainNavigationController.swift in Sources */,
 				DD70E58B1E2C754F00763F27 /* Delay.swift in Sources */,
 				DDCB61941E4AD052004E7B85 /* RefreshCircleView.swift in Sources */,
@@ -555,7 +518,6 @@
 				DD62C13C1E20A79D003DDBDA /* NewsImageHeaderView.swift in Sources */,
 				DD8408601E1F4B93008A2CC0 /* MMDrawerVisualState.m in Sources */,
 				DD76BBBA1E49BFBA00B1B040 /* NavTitleView.swift in Sources */,
-				DD383B111E4D765F00EBFD49 /* HotNewsDetailContentReformer.swift in Sources */,
 				DD63EEBB1E2F1DA20034EC89 /* RequestProtocol.swift in Sources */,
 				DD63EEC61E2F4D0C0034EC89 /* HTTPResponse.swift in Sources */,
 				DD62C16A1E20CE92003DDBDA /* UIView+SDExtension.m in Sources */,
@@ -570,7 +532,6 @@
 				DDA2AEDE1E305BD000982040 /* R.generated.swift in Sources */,
 				DD8408731E1F62FC008A2CC0 /* SlideMenuViewController.swift in Sources */,
 				DDDD670E1E29C1220090621A /* LaunchViewController.swift in Sources */,
-				DD36E7F21E4ED86000995BD1 /* DismissAnimation.swift in Sources */,
 				DD8408421E1F4A52008A2CC0 /* AppDelegate.swift in Sources */,
 				DD8408891E1F9411008A2CC0 /* CommonFunctions.swift in Sources */,
 				DD62C1661E20CE92003DDBDA /* TADotView.m in Sources */,
@@ -579,7 +540,6 @@
 				DD8408711E1F6205008A2CC0 /* DailyHotNewsViewController.swift in Sources */,
 				DDB7A9441E31C7B1007991C5 /* Notification.swift in Sources */,
 				DD62C16D1E20D3B3003DDBDA /* HttpRequest.swift in Sources */,
-				DD36E7F41E4EFA8600995BD1 /* TempViewController.swift in Sources */,
 				DD6B70EE1E486AF500B94F01 /* Date.swift in Sources */,
 				DD62C1671E20CE92003DDBDA /* TAPageControl.m in Sources */,
 				DD62C1691E20CE92003DDBDA /* SDCycleScrollView.m in Sources */,

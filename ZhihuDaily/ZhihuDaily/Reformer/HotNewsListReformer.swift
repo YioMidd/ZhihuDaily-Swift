@@ -20,8 +20,6 @@ let HotNewsListDataKeyId = "HotNewsListDataKeyId"
 let HotNewsListDataKeyGaPrefix = "HotNewsListDataKeyGaPrefix"
 let HotNewsListDataKeyMultipic = "HotNewsListDataKeyMultipic"
 let HotNewsListDataKeyTitle = "HotNewsListDataKeyTitle"
-// local
-let HotNewsListDataKeyDetailContent = "HotNewsListDataKeyDetailContent"
 
 struct HotNewsListReformer: Reformer {
     func reformerWithResponse(_ response: HTTPResponse) -> Any {
