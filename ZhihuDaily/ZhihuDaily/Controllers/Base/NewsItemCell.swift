@@ -17,6 +17,8 @@ class NewsItemCell: UITableViewCell {
     private var morePicImageView: UIImageView!
     private var titleLabelToImageViewConstraint: Constraint!
     private var titleLabelToSuperViewConstraint: Constraint!
+    private var originData: [String : Any]!
+    private var updating: ((Dictionary<String, Any>) -> Void)!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,7 +66,9 @@ class NewsItemCell: UITableViewCell {
     }
     
     
-    func configCellWithData(_ data: [String : Any]) {
+    func configCellWithData(_ data: [String : Any], _ updating: @escaping (_ newlyItem: Dictionary<String, Any>) -> Void) {
+        originData = data
+        self.updating = updating
         titleLabel.text = data[HotNewsListDataKeyTitle] as? String
         let images = data[HotNewsListDataKeyImages] as! Array<String>
         if data[HotNewsListDataKeyMultipic] != nil {
@@ -74,7 +78,7 @@ class NewsItemCell: UITableViewCell {
         }
         if images.count != 0 {
             thumbnailImageView.isHidden = false
-            thumbnailImageView.sd_setImage(with: URL(string: images.first!))
+            thumbnailImageView.sd_setImage(with: URL(string: images.first!), placeholderImage: R.image.image_Preview())
             titleLabelToImageViewConstraint.update(priority: UILayoutPriorityRequired)
             titleLabelToSuperViewConstraint.update(priority: UILayoutPriorityDefaultHigh)
         }else {
@@ -83,6 +87,22 @@ class NewsItemCell: UITableViewCell {
             titleLabelToSuperViewConstraint.update(priority: UILayoutPriorityRequired)
         }
         
+        if data[HotNewsListDataKeyDetailContent] == nil {
+            let id = data[HotNewsListDataKeyId] as! NSNumber
+            preloadNewsContent(id.stringValue)
+        }
+    }
+    
+    private func preloadNewsContent(_ newsID: String) {
+        
+        HTTPRequestClient().send(HTTPRequest(url: url_newsDetail(newsID), method: .GET, parameters: nil)) { (response) in
+            if let _ = response.rawData {
+                let contentData = response.fetchDataWithReformer(HotNewsDetailContentReformer()) as! [String : Any]
+                self.originData[HotNewsListDataKeyDetailContent] = contentData
+                self.updating(self.originData)
+//                print("\(self.originData)")
+            }
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -24,10 +24,10 @@ public class NewsImageHeaderView: UIView {
     
     fileprivate var contentViewTopConstraint: Constraint?
     
-    init(size:CGSize, maxContentOffsetY offsetY: CGFloat, containSubView subView: UIView) {
+    init(frame:CGRect, maxContentOffsetY offsetY: CGFloat, containSubView subView: UIView) {
         self.subView = subView
         maxContenOffsetY = offsetY < 0 ? offsetY : -offsetY
-        super.init(frame: CGRect(origin: CGPoint.zero, size: size))
+        super.init(frame: frame)
         self.clipsToBounds = false
         contentView.clipsToBounds = true
         self.addSubview(contentView)
@@ -52,7 +52,7 @@ public class NewsImageHeaderView: UIView {
                 return
             }
             delegate?.headerView?(self, lockScrollWithOffset: maxContenOffsetY)
-        }else if delta < 0 {
+        }else if delta < 60 {
             contentViewTopConstraint?.update(offset: delta)
         }
     }

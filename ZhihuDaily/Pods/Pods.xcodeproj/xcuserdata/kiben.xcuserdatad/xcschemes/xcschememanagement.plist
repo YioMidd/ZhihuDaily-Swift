@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FDFullscreenPopGesture.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ZhihuDaily.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>46976F4547213AFC21C4154B6E0E254B</key>
+		<key>0F71FC248875B67F53494C44B17B40EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>36533BF27018E244B2AD797B8F3C94F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B6E2FE69648CE8E68BDB81B8F7F0291</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,17 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D25FA53A88BB9FF98E5B9C575E672E0</key>
+		<key>BCD3E1B49AE4AB7FDE0683DE28EBCC78</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD6F8AD871306148ACD4B6DC68042F91</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B1B53CB9D3BECD89DEB7BE71129D7D96</key>
+		<key>BFED245421DFFBBB501B94AFE34AA48E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

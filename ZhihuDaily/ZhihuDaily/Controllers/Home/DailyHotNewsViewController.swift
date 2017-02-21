@@ -15,7 +15,7 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
     fileprivate let scrollDistance: CGFloat = 185.0
     fileprivate var oldContentSizeHeight: CGFloat = 0.0
     fileprivate var newsDateString: String = Date().newsDateString
-    fileprivate var hotNewsSource: Array<[String : Any]> = Array<[String : Any]>()
+    fileprivate var hotStoriesSource: Array<[String : Any]> = Array<[String : Any]>()
     fileprivate var cycleScrollView: SDCycleScrollView?
     fileprivate var statusBarStyle: UIStatusBarStyle = .lightContent 
     fileprivate var statusBarStateHide: Bool = true
@@ -36,7 +36,9 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         self.cycleScrollView?.titleLabelBackgroundColor = UIColor.clear
         self.cycleScrollView?.titleLabelHeight = 100
         
-        let headerView: NewsImageHeaderView = NewsImageHeaderView(size: CGSize(width: ym_ScreenWidth, height: headerViewHeight), maxContentOffsetY: self.maxContentOffsetY, containSubView: self.cycleScrollView!)
+        CGRect(
+        let headerView: NewsImageHeaderView = NewsImageHeaderView(frame: , maxContentOffsetY: <#T##CGFloat#>, containSubView: <#T##UIView#>)
+            NewsImageHeaderView(size: CGSize(width: ym_ScreenWidth, height: headerViewHeight), maxContentOffsetY: self.maxContentOffsetY, containSubView: self.cycleScrollView!)
         headerView.delegate = self
         return headerView
     }()
@@ -82,6 +84,16 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
         addLaunchView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.mm_drawerController.openDrawerGestureModeMask = .panningCenterView
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.mm_drawerController.openDrawerGestureModeMask = .custom
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.overlay?.frame = CGRect(x: 0, y: 0, width: self.view.width, height: 60)
@@ -90,21 +102,24 @@ class DailyHotNewsViewController: UIViewController, UITableViewDelegate, UITable
 
 // MARK: tableView dataSource
 extension DailyHotNewsViewController {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-         return hotNewsSource.count
+         return hotStoriesSource.count
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let news = hotNewsSource[section][HotNewsListDataKeyStories] as! Array<[String : Any]>
-        return news.count
+        let stories = getStories(index: section)
+        return stories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let itemCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(NewsItemCell.self), for: indexPath) as! NewsItemCell
-        let news = hotNewsSource[indexPath.section][HotNewsListDataKeyStories] as! Array<[String : Any]>
-        itemCell.configCellWithData(news[indexPath.row])
+        var stories = getStories(index: indexPath.section)
+        itemCell.configCellWithData(stories[indexPath.row]) { (newlyStory) in
+            let index = tableView.indexPath(for: itemCell)
+            self.updateStoriesItem(newlyStory, index: index!)
+        }
         return itemCell
     }
 }
@@ -123,9 +138,18 @@ extension DailyHotNewsViewController {
             return nil
         }
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: NSStringFromClass(NewsSectionDateHeaderView.self)) as! NewsSectionDateHeaderView
-        let dateString = hotNewsSource[section][HotNewsListDataKeyDate] as! String
+        let dateString = hotStoriesSource[section][HotNewsListDataKeyDate] as! String
         headerView.textLabel?.text = ym_FormateDateString(dateString)
         return  headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newsContentVC = NewsDetailContentViewController()
+        let stories = hotStoriesSource[indexPath.section][HotNewsListDataKeyStories] as! Array<[String : Any]>
+        newsContentVC.contentData = stories[indexPath.row][HotNewsListDataKeyDetailContent] as! [String : Any]
+        self.present(newsContentVC, animated: true, completion: nil)
+//        let tempVC = TempViewController()
+//        self.present(tempVC, animated: true, completion: nil)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -133,8 +157,8 @@ extension DailyHotNewsViewController {
         var stories = Array<[String : Any]>()
         var firstOffsetY: CGFloat = 0.0
         var lastOffsetY: CGFloat = 0.0
-        if hotNewsSource.count > 0 {
-           stories = hotNewsSource.first?[HotNewsListDataKeyStories] as! Array<[String : Any]>
+        if hotStoriesSource.count > 0 {
+           stories = hotStoriesSource.first?[HotNewsListDataKeyStories] as! Array<[String : Any]>
             firstOffsetY = CGFloat(stories.count) * tableViewRowHeight + 154 + originOffset
             lastOffsetY = firstOffsetY + 4 + tableViewHeaderViewHeight
         }
@@ -178,14 +202,15 @@ extension DailyHotNewsViewController {
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
         let contentSizeHeight = scrollView.contentSize.height
-        if abs(offSetY) + 64 >= contentSizeHeight * 0.27 && oldContentSizeHeight != contentSizeHeight {
+        print("\(offSetY)   \(contentSizeHeight)")
+        if abs(offSetY) + 154 - originOffset >= contentSizeHeight * 0.35 && oldContentSizeHeight != contentSizeHeight {
             // load the news before the date
-            oldContentSizeHeight = contentSizeHeight
             HTTPRequestClient().send(HTTPRequest(url: url_newsBefore(newsDateString), method: .GET, parameters: nil), handler: { (response) in
                 if let _ = response.rawData {
+                    self.oldContentSizeHeight = contentSizeHeight
                     let pastNewsData = response.fetchDataWithReformer(HotNewsListReformer()) as! Dictionary<String, Any>
                     self.newsDateString = pastNewsData[HotNewsListDataKeyDate] as! String
-                    self.hotNewsSource.append(pastNewsData)
+                    self.hotStoriesSource.append(pastNewsData)
                     self.newsTableView.reloadData()
                 }
             })
@@ -219,7 +244,7 @@ extension DailyHotNewsViewController {
     }
     
     private func refreshHotNews(_ sourceData: [String : Any]) {
-        self.hotNewsSource.append(sourceData)
+        self.hotStoriesSource.append(sourceData)
         self.newsTableView.reloadData()
     }
     
@@ -235,6 +260,17 @@ extension DailyHotNewsViewController {
         }
         self.cycleScrollView?.imageURLStringsGroup = images
         self.cycleScrollView?.titlesGroup = titles
+    }
+    
+    // MARK: Update Data 
+    fileprivate func updateStoriesItem(_ newlyStory: [String : Any], index: IndexPath) {
+        var stories = getStories(index: index.section)
+        stories[index.row] = newlyStory
+        self.hotStoriesSource[index.section][HotNewsListDataKeyStories] = stories
+    }
+    
+    fileprivate func getStories(index: Int) -> Array<[String : Any]> {
+        return self.hotStoriesSource[index][HotNewsListDataKeyStories] as! Array<[String : Any]>
     }
     
     // MARK: Add ChildVC
